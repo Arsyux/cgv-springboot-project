@@ -94,13 +94,70 @@
 			<li>홈 라이브러리, 리빙룸 두 가지 컨셉</li>
 		</ul>
 	</div>
-	<img src="images/common/PRIVATEBOX_down2.jpg">
-	<img src="images/common/PRIVATEBOX_down3.jpg">
-	<img src="images/common/PRIVATEBOX_down4.jpg">
-	<img src="images/common/PRIVATEBOX_down5.jfif">
-	<img src="images/common/PRIVATEBOX_down6.jpg">
-	<img src="images/common/PRIVATEBOX_down7.png">
-	<img src="images/common/PRIVATEBOX_down8.jpg">
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down2.jpg">
+		<h3>영등포</h3>
+		<h4>SCREENX 융합 상영관</h4>
+		<ul>
+			<li>글로벌 최장 너비 극장 스크린 보유</li>
+			<li>PRIVATE BOX 전용 입장로 운영 (7~8F)</li>
+			<li>6F 컨시어지 체크인 필요</li>
+			<li>공연 특화 오페라하우스 컨셉</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down3.jpg">
+		<h3>연남</h3>
+		<h4>SUITE CINEMA 융합 상영관</h4>
+		<ul>
+			<li>스위트 패키지 제공 (무릎담요, 실내용 슬리퍼 등)</li>
+			<li>거실타입의 부스형 좌석과 결합된 호텔 스위트룸 컨셉</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down4.jpg">
+		<h3>서면상상마당</h3>
+		<h4>전석 PRIVATE BOX 상영관</h4>
+		<ul>
+			<li>PRIVATE BOX 전용 상영관</li>
+			<li>온전히 독립된 공간 컨셉</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down5.jfif">
+		<h3>인천</h3>
+		<h4>일반관 융합 상영관</h4>
+		<ul>
+			<li>커플 관람에 최적화된 넓은 상영관</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down6.jpg">
+		<h3>압구정</h3>
+		<h4>IMAX 융합 상영관</h4>
+		<ul>
+			<li>IMAX Maximized SCREEN 보유</li>
+			<li>박스별 분리된 개별 라운지 운영</li>
+			<li>공용 라운지 내 매점 운영</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down7.png">
+		<h3>천안터미널</h3>
+		<h4>일반관 융합 상영관</h4>
+		<ul>
+			<li>커플 관람에 최적화된 상영관</li>
+		</ul>
+	</div>
+	<div class="downBox">
+		<img src="images/common/PRIVATEBOX_down8.jpg">
+		<h3>동탄</h3>
+		<h4>일반관 융합 상영관</h4>
+		<ul>
+			<li>3관: 가족 관람이 가능한 쾌적하고 넓은 상영관 (4인석)</li>
+			<li>6관: 커플 관람에 최적화된 상영관 (2인석)</li>
+		</ul>
+	</div>
 </div>
 
 
