@@ -99,8 +99,14 @@
 	border-radius: 30px;
 	
 	text-align: center;
+	/*
 	transition: 0.5s;
+	*/
 }
+#special_nav > div.cinemaArea > a.cinemaBox:hover {
+	border: 2px solid rgb(251, 67, 87);
+}
+
 #special_nav > div.cinemaArea > a.cinemaBox:nth-child(1) { left: 30px; }
 #special_nav > div.cinemaArea > a.cinemaBox:nth-child(2) { left: 160px; }
 #special_nav > div.cinemaArea > a.cinemaBox:nth-child(3) { left: 290px; }

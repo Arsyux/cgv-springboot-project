@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/* STARIUM 영역 */
+#PRIVATEBOX_section1 {
+ 	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+#PRIVATEBOX_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#PRIVATEBOX_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+
+#PRIVATEBOX_section2 {
+ 	width: 100%;
+ 	text-align: center;
+ 	background: #f8f8f8;
+	margin-top: 30px;
+	text-align: center;
+}
+#PRIVATEBOX_section2 div.section_info {
+	width: 1000px;
+ 	height: 500px;
+	margin: 0 auto;
+}
+#PRIVATEBOX_section2 div.section_info div.section_infoBox {
+	display: inline-block;
+	vertical-align: middle;
+	width: 320px;
+	height: 360px;
+	margin-top: 50px
+}
+#PRIVATEBOX_section2 div.section_info div.section_infoBox > img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+#PRIVATEBOX_section2 div.section_info div.section_infoBox > h3 {
+	color: #222;
+	margin-top: 20px;
+	font-size: 35px;
+	letter-spacing: -1px;
+	font-family: 'Poppins';
+	font-weight: bold;
+	line-height: 1;
+}
+#PRIVATEBOX_section2 div.section_info div.section_infoBox > p {
+	color: #666;
+	margin-top: 20px;
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+}
+
+#PRIVATEBOX_section3 {
+	width: 1000px;
+	height: 1500px;
+	margin: 0 auto;
+}
+
+#PRIVATEBOX_section3 > h2 {
+	color: #222;
+	font-size: 24px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+	margin-top: 100px;
+	text-align: center;
+}
+
+#PRIVATEBOX_section3 > p.section3_txt {
+	color: #999;
+	font-size: 16px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+	text-align: center;
+}
+
+#PRIVATEBOX_section3 > div.downBox {
+	display: inline-block;
+	width: 485px;
+	height: 630px;
+	background: #f8f8f8;
+		
+}
+
+#PRIVATEBOX_section3 > div.downBox > h3 {
+	font-size: 22px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: bold;
+	text-align: center;
+	color: #222;
+}
+
+#PRIVATEBOX_section3 > div.downBox > h4 {
+	font-size: 22px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+	text-align: center;
+	color: #222;
+}
+#PRIVATEBOX_section3 > div.downBox > ul {
+	margin-top: 100px;
+	margin-left: 20px;
+}
+#PRIVATEBOX_section3 > div.downBox > ul > li:before {
+    content:"· ";
+    font-size: 30px;
+    vertical-align:middle;
+    line-height: 18px;
+}
+#PRIVATEBOX_section3 > div.downBox > ul > li {
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+	text-align: left;
+	
+	color: #666;
+}
+
+#PRIVATEBOX_section3 > div.downBox > img {
+	width: 100%;
+}

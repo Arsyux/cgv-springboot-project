@@ -25,7 +25,7 @@
     src: url('../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf') format('truetype');
 }
 
-html { scroll-behavior: smooth;}
+html { scroll-behavior: smooth; }
 body { font-family: '맑은 고딕';}
 
 * { padding: 0; margin: 0; }

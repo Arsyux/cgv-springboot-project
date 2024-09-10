@@ -90,7 +90,7 @@
 <c:if test="${ page == 2 }">
 	<style>
 		.cinemaBox {
-			transform: translateX(-700px);
+			transform: translateX(-940px);
 		}
 		#special_arrow_left {
 			opacity: 1;
@@ -105,7 +105,7 @@
 <c:if test="${ page == 3 }">
 	<style>
 		.cinemaBox {
-			transform: translateX(-1000px);
+			transform: translateX(-1330px);
 		}
 		#special_arrow_right {
 			opacity: 0.2;
