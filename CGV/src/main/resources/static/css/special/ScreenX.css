@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* ScreenX 영역 */
+#ScreenX_section1 {
+	width: 1000px;
+	height: 1620px;
+	margin: 0 auto;
+	text-align: center;
+}
+#ScreenX_section1 > h2 {
+	color: #000;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	margin-top: 50px;
+}
+#ScreenX_section1 > p {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 10px;
+}
+#ScreenX_section1 > img {
+	margin-top: 60px;
+	margin-bottom: 60px;
+	width: 1000px;	
+}
+#ScreenX_section1 > video {
+	margin-top: 60px;
+	width: 1000px;
+}

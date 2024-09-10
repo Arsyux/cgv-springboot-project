@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* U4DX 영역 */
+#U4DX_section1 {
+ 	width: 1000px;
+ 	height: 550px;
+ 	text-align: center;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+}
+#U4DX_section1 a.bx-prev {
+	background: url(/bxslider/src/images/controls.png) 0 -32px no-repeat;
+}
+#U4DX_section1 a.bx-next {
+	background: url(/bxslider/src/images/controls.png) -43px -32px no-repeat;
+}
+#U4DX_section1 div.bx-wrapper {
+	border: 0;
+	box-shadow: none;
+}
+#U4DX_section1 div.bx-viewport {
+	width: 500px;
+	height: 400px;
+}
+#U4DX_section1 ul li img {
+	width: 100%;
+}
+#U4DX_section1 ul li video {
+	width: 100%;	
+}
+
+#U4DX_section2 {
+	width: 1000px;
+	height: 1550px;
+	margin: 0 auto;
+	text-align: center;
+}
+#U4DX_section2 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+#U4DX_section2 > p {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 20px;
+}
+
+#U4DX_section2 > img {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+}
+

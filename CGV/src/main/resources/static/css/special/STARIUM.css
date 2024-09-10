@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/* STARIUM 영역 */
+#STARIUM_section1 {
+ 	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+#STARIUM_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#STARIUM_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+
+#STARIUM_section2 {
+ 	width: 100%;
+ 	text-align: center;
+ 	background: #f8f8f8;
+	margin-top: 30px;
+	text-align: center;
+}
+#STARIUM_section2 div.section_info {
+	width: 1000px;
+ 	height: 450px;
+	margin: 0 auto;
+}
+#STARIUM_section2 div.section_info div.section_infoBox {
+	display: inline-block;
+	vertical-align: middle;
+	width: 320px;
+	height: 360px;
+	margin-top: 100px
+}
+#STARIUM_section2 div.section_info div.section_infoBox > img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+#STARIUM_section2 div.section_info div.section_infoBox > h3 {
+	color: #222;
+	margin-top: 20px;
+	font-size: 28px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: bold;
+}
+
+#STARIUM_section3 {
+	width: 1000px;
+	height: 1500px;
+	margin: 0 auto;
+}
+
+#STARIUM_section3 > h2 {
+	color: #222;
+	font-size: 40px;
+	letter-spacing: -1px;
+	font-family: 'Poppins';
+	font-weight: bold;
+	margin-top: 100px;
+}
+
+#STARIUM_section3 > p {
+	color: #222;
+	font-size: 20px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	font-weight: normal;
+	margin-top: 10px;
+}
+
+
+#STARIUM_section3 > img {
+	width: 100%;
+	margin-top: 40px;
+}

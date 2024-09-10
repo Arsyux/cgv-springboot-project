@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/* 4DX 영역 */
+#fourDX_section1 {
+	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+#fourDX_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+#fourDX_section1 > p.txt1 {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 20px;
+}
+#fourDX_section1 > p.txt2 {
+	color: #999;
+	font-size: 14px;
+	font-family: 'Noto_Sans_KR';
+	margin-top: 20px;
+}
+
+#fourDX_section2 {
+ 	width: 100%;
+ 	text-align: center;
+ 	background: #f8f8f8;
+	margin-top: 30px;
+	text-align: center;
+}
+#fourDX_section2 div.fourDX_info {
+	width: 1000px;
+ 	height: 780px;
+	margin: 0 auto;
+}
+#fourDX_section2 div.fourDX_info div.fourDX_infoBox {
+	display: inline-block;
+	vertical-align: middle;
+	width: 450px;
+	height: 130px;
+	margin-top: 50px;
+	text-align: left;
+}
+#fourDX_section2 div.fourDX_info div.fourDX_infoBox > img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+}
+#fourDX_section2 div.fourDX_info div.fourDX_infoBox > h2 {
+	display: inline-block;
+	vertical-align: middle;
+	color: #000;
+	font-size: 36px;
+	letter-spacing: -1px;
+	font-family: 'Poppins';
+	font-weight: normal;
+	margin-left: 20px;
+}
+
+#fourDX_section3 {
+	width: 1000px;
+	margin: 0 auto;
+}
+#fourDX_section3 > h2 {
+	font-size: 40px;	
+	letter-spacing: -1px;
+	margin-top: 60px;
+	font-family: 'Poppins';
+}
+#fourDX_section3 > p {
+	font-size: 20px;
+	letter-spacing: -1px;
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+}
+#fourDX_section3 > img {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+

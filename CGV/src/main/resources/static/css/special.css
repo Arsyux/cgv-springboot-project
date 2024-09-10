@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/* 특별관 이미지 영역 */
+#special_imgArea {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	background: #000;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#special_imgArea > img {
+	position: absolute;
+	top: -100px;
+	left: calc(50% - 500px);
+	width: 1000px;
+}
+#special_imgArea > div.special_dark {
+	position: absolute;
+	top: 0;
+	left: calc(50% - 500px);
+	width: 1000px;
+	height: 300px;
+	background: linear-gradient(to right, #000, transparent, #000);
+}
+#special_imgArea > h2 {
+	position: absolute;
+	top: 90px;
+	left: calc(50% - 500px);
+	width: 1000px;
+	height: auto;
+	color: #fff;
+	font-size: 50px;
+	letter-spacing: -2px;
+}
+#special_imgArea > h3 {
+	position: absolute;
+	top: 155px;
+	left: calc(50% - 500px);
+	width: 1000px;
+	height: auto;
+	color: #fff;
+	font-size: 30px;
+	font-weight: normal;
+	letter-spacing: -2px;
+}
+
+
+/* 특별관 네비게이션 영역 */
+#special_nav {
+	width: 1000px;
+	height: 90px;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #000;
+}
+
+#special_arrow_left {
+	display: inline-block;
+	vertical-align: middle;
+	width: 22px;
+	cursor: pointer;
+}
+#special_arrow_right {
+	display: inline-block;
+	vertical-align: middle;
+	transform: scaleX(-1);
+	width: 22px;
+	cursor: pointer;
+}
+
+#special_nav > div.cinemaArea {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 690px;
+	width: 940px;
+	height: 90px;
+	overflow: hidden;
+}
+
+#special_nav > div.cinemaArea > a.cinemaBox {
+	position: absolute;
+	top: 0;
+	left: 0;	
+
+	display: inline-block;
+	vertical-align: middle;
+
+	box-sizing: border-box;
+	
+	width: 90px;
+	height: 90px;
+	
+	background: #fcfcfc;
+	border: 1px solid #eee;
+	border-radius: 30px;
+	
+	text-align: center;
+	transition: 0.5s;
+}
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(1) { left: 30px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(2) { left: 160px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(3) { left: 290px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(4) { left: 420px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(5) { left: 550px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(6) { left: 680px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(7) { left: 810px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(8) { left: 970px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(9) { left: 1100px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(10) { left: 1230px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(11) { left: 1360px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(12) { left: 1490px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(13) { left: 1620px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(14) { left: 1750px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(15) { left: 1880px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(16) { left: 2010px; }
+#special_nav > div.cinemaArea > a.cinemaBox:nth-child(17) { left: 2140px; }
+
+#special_nav > div.cinemaArea > a.cinemaBox > img.cinemaImg {
+	position: absolute;
+	top: 38px;
+	left: 10px;
+	
+	height: 14px;
+	width: auto;
+}
+
+/* bxslider 영역 */
+#bxslider_area {
+	position: relative;
+ 	width: 1000px;
+ 	height: 600px;
+ 	text-align: center;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+}
+#bxslider_area a.bx-prev {
+	background: url(/bxslider/src/images/controls.png) 0 -32px no-repeat;
+}
+#bxslider_area a.bx-next {
+	background: url(/bxslider/src/images/controls.png) -43px -32px no-repeat;
+}
+#bxslider_area div.bx-wrapper {
+	border: 0;
+	box-shadow: none;
+}
+#bxslider_area div.bx-viewport {
+	width: 500px;
+	height: 400px;
+}
+#bxslider_area ul li img {
+	width: 100%;
+}
+#bxslider_area ul li video {
+	width: 100%;	
+}
+#bxslider_area div.bxslider {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#bxslider_area div.bxsliderV {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#bxslider_area ul.bxslider li img,
+#bxslider_area ul.bxsliderV li img {
+	filter: brightness(70%);
+}

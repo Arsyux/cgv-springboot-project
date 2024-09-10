@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* IMAX 영역 */
+#IMAX_section1 {
+ 	width: 100%;
+ 	text-align: center;
+ 	background: #f8f8f8;
+	margin-top: 30px;
+	text-align: center;
+}
+#IMAX_section1 div.imax_info {
+	width: 1000px;
+ 	height: 560px;
+	margin: 0 auto;
+}
+#IMAX_section1 div.imax_info div.imax_infoBox {
+	display: inline-block;
+	vertical-align: middle;
+	width: 320px;
+	height: 360px;
+	margin-top: 100px
+}
+#IMAX_section1 div.imax_info div.imax_infoBox > img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+#IMAX_section1 div.imax_info div.imax_infoBox > h2 {
+	color: #999;
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-family: 'Poppins';
+	font-weight: normal;
+	margin-bottom: -10px;
+}
+#IMAX_section1 div.imax_info div.imax_infoBox > h3 {
+	color: #000;
+	font-size: 36px;
+	letter-spacing: -1px;
+	font-family: 'Poppins';
+	font-weight: normal;
+}
+#IMAX_section1 div.imax_info div.imax_infoBox > p {
+	color: #666;
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-weight: normal;
+	font-family: 'Noto_Sans_KR';
+}
+
+#IMAX_section2 {
+	width: 1000px;
+	margin: 0 auto;
+}
+#IMAX_section2 > img {
+	margin-bottom: 50px;
+	width: 100%;
+}
+#IMAX_section2 > img:first-child {
+	margin-top: 50px;
+}

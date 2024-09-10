@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/* ScreenX 영역 */
+#SPHEREX_section1 {
+	width: 1000px;
+	height: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+#SPHEREX_section1 > h2 {
+	color: #000;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	margin-top: 50px;
+}
+#SPHEREX_section1 > p.txt1 {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 10px;
+	line-height: 2;
+}
+#SPHEREX_section1 > p.txt2 {
+	color: #999;
+	font-size: 14px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 30px;
+}

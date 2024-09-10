@@ -1,0 +1,583 @@
+@charset "UTF-8";
+
+/* 메인 무비 영역 */
+#mainMovieSection {
+	position: absolute;
+	top: 80px;
+	left: 0px;
+    width: 100%;
+    height: 660px;
+    background: #000;
+    text-align: center;
+}
+
+/* 영상 재생영역 */
+#movie_wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    height: 660px;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#movie_dark {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(to top, #000, transparent, #000);
+    width: 1000px;
+    height: 660px;
+}
+
+#movie_wrap video {
+    width: 100%;
+    height: auto;
+    transform: scale(1.2);
+}
+
+/* 재생, 일시정지 */
+#main_movie_play,
+#main_movie_sound {
+    width: 30px;
+    height: auto;
+
+    border: 1px solid #fff;
+    border-radius: 50%;
+
+    opacity: 0.5;
+
+    cursor: pointer;
+}
+#main_movie_play {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+#main_movie_sound {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+}
+
+/* 메인 예매하기 버튼 */
+#main_ticketing {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    display: block;
+    width: 210px;
+    height: 65px;
+    line-height: 70px;
+    border-radius: 10px;
+
+    font-family: 'BMDOHYEON';
+    font-size: 40px;
+    letter-spacing: -1px;
+    background: #ed3124;
+    color: #fff;
+}
+#main_ticketing:hover {
+    color: #ffff00;
+}
+
+/* 메인 무비 영역에서 absolute를 사용해 nav와 합쳐놓았으므로 블럭 하나를 넣어 해결하였음 */
+#movieBlock {
+	width: 100%;
+	height: 590px;
+}
+
+
+/* 무비 차트 영역 */
+#moviechart {
+    width: 100%;
+    height: 460px;
+    background: #000;
+    text-align: center;
+    margin: 0 auto;
+}
+#moviechart_wrap {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    text-align: left;
+}
+#moviechart_wrap > p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 32px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+#moviechart_wrap > p:nth-child(1) {
+    margin-left: 10px;
+}
+#moviechart_wrap > p:nth-child(3) {
+    color: rgba(255, 255, 255, 0.5);
+}
+#moviechart_wrap > p.line {
+    width: 1px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    
+    text-align: center;
+}
+
+#moviechart > div.moviechartBox {
+    position: relative;
+
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 7px;
+    margin-right: 7px;
+    width: 230px;
+    height: 400px;
+}
+
+#moviechart > div.moviechartBox > img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 230px;
+    height: 325px;
+    border-radius: 10px;
+}
+
+#moviechart > div.moviechartBox > h3 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #fff;
+    font-size: 48px;
+    text-shadow: 1px 1px 7px #000;
+}
+#moviechart > div.moviechartBox > p.age {
+    position: absolute;
+    top: 287px;
+    right: 7px;
+
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: #fff;
+    background: #d6a72c;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+#moviechart > div.moviechartBox:nth-child(2) > p.age {
+    background: #d6a72c;
+}
+#moviechart > div.moviechartBox:nth-child(3) > p.age {
+    background: #d42a34;
+}
+#moviechart > div.moviechartBox:nth-child(4) > p.age {
+    background: #dd7430;
+}
+#moviechart > div.moviechartBox:nth-child(5) > p.age {
+    background: #229c56;
+    font-size: 17px;
+    letter-spacing: -2px;
+}
+
+#moviechart > div.moviechartBox > h4 {
+    position: absolute;
+    bottom: 40px;
+    left: 0px;
+
+    display: block;
+    width: 230px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    font-size: 21px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#moviechart > div.moviechartBox > div.eggBox {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+
+    width: 230px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+#moviechart > div.moviechartBox > div.eggBox img {
+    display: inline-block;
+    vertical-align: middle;
+}
+#moviechart > div.moviechartBox > div.eggBox p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+}
+#moviechart > div.moviechartBox > div.eggBox p.line {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* 이벤트 영역 */
+#event_area {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+#event_area h2 {
+    display: inline-block;
+    font-family: 'BMHANNAPro';
+    font-size: 32px;
+    letter-spacing: -1px;
+
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#event_wrap {
+    position: relative;
+
+    width: 975px;
+    height: 505px;
+    margin-top: 20px;
+}
+#event_wrap img {
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #aaa;
+}
+#event_wrap img.event1 {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 290px;
+    height: 500px;
+}
+
+#event_wrap img.event2 {
+    position: absolute;
+    top: 2px;
+    left: 310px;
+    width: 280px;
+    height: 245px;
+}
+
+#event_wrap img.event3 {
+    position: absolute;
+    top: 2px;
+    left: 600px;
+    width: 180px;
+    height: 245px;
+}
+
+#event_wrap img.event4 {
+    position: absolute;
+    top: 2px;
+    left: 790px;
+    width: 180px;
+    height: 245px;
+}
+
+#event_wrap img.event5 {
+    position: absolute;
+    top: 257px;
+    left: 310px;
+    width: 180px;
+    height: 245px;
+}
+
+#event_wrap img.event6 {
+    position: absolute;
+    top: 257px;
+    left: 500px;
+    width: 470px;
+    height: 245px;
+}
+
+#special_area {
+    width: 1000px;
+    height: 620px;
+    margin: 0 auto;
+    padding-top: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#special_area h2 {
+    display: block;
+    font-family: 'BMHANNAPro';
+    font-size: 32px;
+    letter-spacing: -1px;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#special_area img {
+    float: left;
+    width: 480px;
+    height: 250px;
+    border-radius: 15px;
+    margin: 10px 10px;
+    box-shadow: 3px 3px 5px #aaa;
+}
+
+
+/* 상품 판매 영역 */
+#goods_area {
+    width: 1000px;
+    height: 670px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#goods_area div.goods_box {
+    display: inline-block;
+    vertical-align: middle;
+    width: 310px;
+    height: 365px;
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    margin: 10px 9px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#goods_area div.goods_box h3 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    width: 195px;
+    height: 25px;
+    line-height: 25px;
+}
+
+#goods_area div.goods_box p.plus {
+    display: inline-block;
+    vertical-align: middle;
+    width: 65px;
+    height: 25px;
+    border: 1px solid #f4f4f4;
+    border-radius: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#goods_area div.goods_box p.plus a {
+    display: inline-block;
+    width: 65px;
+    height: 25px;
+    color: #747774;
+}
+
+
+#goods_area div.goods_box div.goods_pacakge {
+    position: relative;
+    width: 270px;
+    height: 80px;
+    margin-top: 20px;
+}
+#goods_area div.goods_box div.goods_pacakge:hover {
+    position: relative;
+    width: 270px;
+    height: 80px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#goods_area div.goods_box div.goods_pacakge img {
+    width: 75px;
+    height: auto;
+    border-radius: 5px;
+}
+
+#goods_area div.goods_box div.priceBox {
+    position: absolute;
+    top: 0px;
+    left: 85px;
+
+    width: 180px;
+    height: 75px;
+}
+
+#goods_area div.goods_box div.goods_pacakge h4 {
+    width: 180px;
+    height: 35px;
+    font-size: 16px;
+    letter-spacing: -1px;
+
+    display: flex;
+    align-items: end;
+}
+
+#goods_area div.goods_box div.goods_pacakge p {
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+
+
+
+#goods_area div.goods_infoWrap {
+    display: inline-block;
+    vertical-align: middle;
+    width: 760px;
+    height: 240px;
+    margin-top: 10px;
+}
+#goods_area div.goods_infoWrap div.goods_infoleft {
+    width: 525px;
+    height: 240px;
+    border: 1px solid #e4e4e4;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 0px;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#goods_area div.goods_infoWrap div.goods_infoleft h2 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+}
+#goods_area div.goods_infoWrap div.goods_infoleft p.infotxt {
+    display: inline-block;
+    vertical-align: middle;
+    width: 330px;
+    height: 25px;
+    font-size: 13px;
+    line-height: 25px;
+    text-align: left;
+}
+#goods_area div.goods_infoWrap div.goods_infoleft p.plus {
+    display: inline-block;
+    vertical-align: middle;
+    width: 65px;
+    height: 25px;
+    border: 1px solid #f4f4f4;
+    border-radius: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#goods_area div.goods_infoWrap div.goods_infoleft p.plus a {
+    display: inline-block;
+    width: 65px;
+    height: 25px;
+    color: #747774;
+}
+
+#goods_area div.goods_infoWrap div.goods_inforight {
+    width: 230px;
+    height: 240px;
+    border: 1px solid #e4e4e4;
+    border-radius: 0px 10px 10px 0px;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#goods_area div.goods_ad {
+    display: inline-block;
+    vertical-align: middle;
+    width: 210px;
+    height: 240px;
+    background: purple;
+    border-radius: 10px;
+    background: url(../images/goods_ad.png) center;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
+#goods_area div.goods_infoWrap div.goods_infoleft p.line {
+    width: 480px;
+    height: 1px;
+    background: #f4f4f4;
+    margin: 15px 0px;
+}
+
+#goods_area div.goods_infoWrap div.goods_infoleft div.cs_number {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    height: 70px;
+    text-align: left;
+    line-height: 24px;
+}
+#goods_area div.goods_infoWrap div.goods_infoleft div.cs_number span {
+    color: #666666;
+}
+
+
+#goods_area div.goods_infoWrap div.goods_infoleft div.btnWrap {
+    margin-top: 25px;
+    text-align: left;
+}
+
+#goods_area div.goods_infoWrap div.goods_infoleft div.btnWrap p.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #f6f6f6;
+    margin-right: 10px;
+}
+
+#goods_area div.goods_infoWrap div.goods_inforight h2 {
+    font-size: 18px;
+    margin-top: 10px;
+} 
+
+#goods_area div.goods_infoWrap div.goods_inforight p.txt1 {
+    font-size: 12px;
+    margin-top: 5px;
+}
+#goods_area div.goods_infoWrap div.goods_inforight img {
+    margin-top: 20px;
+    width: 60px;
+    height: auto;
+}
+
+#goods_area div.goods_infoWrap div.goods_inforight p.txt2 {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #666;
+}

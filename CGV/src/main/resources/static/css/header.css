@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+/* 배달의민족 도현체 */
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 배달의민족 한나체Pro */
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Poppins 글씨체 */
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+/* Noto_Sans_KR 글씨체 */
+@font-face {
+    font-family: 'Noto_Sans_KR';
+    src: url('../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf') format('truetype');
+}
+
+html { scroll-behavior: smooth;}
+body { font-family: '맑은 고딕';}
+
+* { padding: 0; margin: 0; }
+a { text-decoration: none; }
+li { list-style: none; }
+
+
+/* 상단 광고 부분 */
+#header_ad {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+
+#header_ad img {
+    background: #0065D4;
+}
+
+#header_ad div.header_ad_area {
+	position: relative;
+	top: 0px;
+	left: calc(50%-500px);
+	width: 980px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+#header_adImg {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+#header_adClose {
+	position: absolute;
+	top: 5px;
+	left: 960px;
+	cursor: pointer;
+	z-index: 2;
+}
+
+#nav_wrap {
+    width: 1000px;
+    height: 70px;
+    margin: 0 auto;
+    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 99999999;
+}
+/* 왼쪽 메뉴 (네비) */
+nav {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 980px;
+    height: 70px;
+    margin: 0 auto;
+    border-bottom: 1px solid #d8d8d8;
+}
+nav > a > img#logoImg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+}
+
+nav > ul.menu {
+    position: absolute;
+    top: 0px;
+    left: 140px;
+
+    width: 550px;
+    height: 70px;
+    line-height: 70px;
+
+    text-align: left;
+}
+nav > ul.menu > li {
+    width: 85px;
+    height: 70px;
+    float: left;
+    position: relative;
+}
+nav > ul.menu > li > a {
+    display: block;
+    width: 85px;
+    height: 70px;
+    font-size: 24px;
+    letter-spacing: -1px;
+    font-weight: 500;
+    text-align: left;
+    color: #666;
+}
+nav > ul.menu > li:nth-child(1) ,
+nav > ul.menu > li:nth-child(1) > a {
+    width: 85px;
+}
+nav > ul.menu > li:nth-child(2) ,
+nav > ul.menu > li:nth-child(2) > a {
+    width: 85px;
+}
+nav > ul.menu > li:nth-child(3) ,
+nav > ul.menu > li:nth-child(3) > a {
+    width: 85px;
+}
+nav > ul.menu > li:nth-child(4) ,
+nav > ul.menu > li:nth-child(4) > a {
+    width: 105px;
+}
+nav > ul.menu > li:nth-child(5) ,
+nav > ul.menu > li:nth-child(5) > a {
+    width: 105px;
+}
+nav > ul.menu > li:nth-child(6) ,
+nav > ul.menu > li:nth-child(6) > a {
+    width: 85px;
+}
+nav > ul.menu > li:hover > a {
+    color: #ed3124;
+}
+nav > ul.menu > li:hover > ul.sub {
+    display: block;
+}
+
+/* 오른쪽 메뉴 */
+nav > ul.login {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    width: 280px;
+    height: 70px;
+}
+nav > ul.login > li {
+    display: inline-block;
+    font-size: 24px;
+    letter-spacing: -1px;
+    font-weight: 500;
+    margin-left: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+nav > ul.login > li > a {
+    color: #666;
+    font-size: 14px;
+}
+nav > ul.login > li > a > img {
+    width: 40px;
+}
+nav > ul.login > li > a > p {
+    margin-top: -5px;
+}
+
+/* 서브 메뉴 */
+nav > ul.menu > li > ul.sub {
+    position: absolute;
+    top: 70px;
+    left: -35px;
+
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+nav > ul.menu > li:nth-child(3) > ul.sub {
+    left: -60px;
+}
+nav > ul.menu > li > ul.sub > li > a {
+    display: block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 20px;
+    color: #ccc;
+}
+nav > ul.menu > li:nth-child(1) > ul.sub > li > a {
+    width: 130px;
+}
+nav > ul.menu > li:nth-child(2) > ul.sub > li > a {
+    width: 130px;
+}
+nav > ul.menu > li:nth-child(3) > ul.sub > li > a {
+    width: 200px;
+}
+nav > ul.menu > li:nth-child(4) > ul.sub > li > a {
+    width: 130px;
+}
+nav > ul.menu > li:nth-child(5) > ul.sub > li > a {
+    width: 140px;
+}
+nav > ul.menu > li:nth-child(6) > ul.sub > li > a {
+    width: 140px;
+}
+
+nav > ul.menu > li > ul.sub > li:hover {
+    background: rgba(0, 0, 0, 1);
+}
+nav > ul.menu > li > ul.sub > li:hover a {
+    color: #ffff00;
+}
+
+/* 스크롤시 */
+#nav_wrap.active {
+    width: 100%;
+    background: linear-gradient(to right, #da4454, #f05b34);
+}
+#nav_wrap.active nav {
+    position: relative;
+    border-bottom: 0;
+}
+#nav_wrap.active nav ul li a {
+    color: #fff;
+}
+#nav_wrap.active nav > ul.menu > li > ul.sub {
+    background: rgba(220, 69, 81, 0.7);
+}
+#nav_wrap.active nav > ul.menu > li > ul.sub > li:hover {
+    background: rgba(220, 69, 81, 1);
+}
+
+/* 예매하기 버튼 fix */
+#fix_ticketing {
+	position: fixed;
+    left: 65%;
+    bottom: 80px;
+    
+    z-index: 99999999;
+
+    display: block;
+    opacity: 0;
+    
+	transition-property: all;
+	transition-duration: 0.25s;
+}
+/*
+#fix_ticketing > div.fix_ticketingBox {
+	position: absolute;
+    left: 65%;
+    bottom: 80px;
+}
+*/
+#fix_ticketing > div.fix_ticketingBox > a.ticketing {
+	display: inline-block;
+    vertical-align: middle;
+    
+    width: 135px;
+    height: 50px;
+    background: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+    
+    cursor: default;
+}
+#fix_ticketing > div.fix_ticketingBox > a.fix_ticketing_ImgBox {
+	display: inline-block;
+    vertical-align: middle;
+    
+	width: 50px;
+	height: 50px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 50%;
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+    
+	line-height: 60px;
+    
+    text-align: center;
+    
+    cursor: default;
+}
+#fix_ticketing > div.fix_ticketingBox > a.fix_ticketing_ImgBox > img {
+	width: 15px;
+	height: auto;
+}

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* ScreenX 영역 */
+#SOUNDX_section1 {
+	width: 1000px;
+	height: 1050px;
+	margin: 0 auto;
+	text-align: center;
+}
+#SOUNDX_section1 > h2 {
+	color: #222;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+#SOUNDX_section1 > p.line {
+	width: 100%;
+	height: 1px;
+	background: #eee;
+	margin-top: 50px;
+}
+
+#SOUNDX_section1 > h3 {
+	color: #222;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	text-align: left;
+	margin-top: 50px;
+}
+
+#SOUNDX_section1 > p.txt1 {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 20px;
+	text-align: left;
+}
+#SOUNDX_section1 > img {
+	width: 1000px;
+	margin-top: 30px;	
+}
