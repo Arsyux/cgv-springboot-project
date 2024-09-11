@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/* PREMIUM 영역 */
+#PREMIUM_section1 {
+ 	width: 1000px;
+	height: 1750px;
+	margin: 0 auto;
+	text-align: center;
+}
+#PREMIUM_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+	margin-top: 80px;
+}
+#PREMIUM_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#PREMIUM_section1 > p > span {
+	display: inline-block;
+	color: #999;
+	font-size: 14px;
+	letter-spacing: -1px;
+	font-family: 'Noto_Sans_KR';
+	margin-top: 10px;
+}
+#PREMIUM_section1 > img {
+	width: 100%;
+	margin-top: 50px;	
+}

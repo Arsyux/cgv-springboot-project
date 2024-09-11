@@ -17,8 +17,8 @@
 <div id="special_imgArea">
 	<img src="images/common/special_PRIVATE.png">
 	<div class="special_dark"></div>
-	<h2>GOLD CLASS</h2>
-	<h3>프리미엄 소파 상영관</h3>
+	<h2>THE PRIVATE CINEMA</h2>
+	<h3>대관형 프리미엄 상영관</h3>
 </div>
 
 <!-- special nav 영역 -->
