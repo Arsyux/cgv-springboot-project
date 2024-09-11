@@ -99,12 +99,12 @@
 	border-radius: 30px;
 	
 	text-align: center;
-	/*
+	
 	transition: 0.5s;
-	*/
 }
+
 #special_nav > div.cinemaArea > a.cinemaBox:hover {
-	border: 2px solid rgb(251, 67, 87);
+	border: 1px solid rgb(251, 67, 87);
 }
 
 #special_nav > div.cinemaArea > a.cinemaBox:nth-child(1) { left: 30px; }
@@ -162,7 +162,7 @@
 	width: 100%;
 }
 #bxslider_area ul li video {
-	width: 100%;	
+	width: 100%;
 }
 #bxslider_area div.bxslider {
 	position: absolute;

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/* DOLBY 영역 */
+#DOLBY_section1 {
+ 	width: 1000px;
+	height: 1650px;
+	margin: 0 auto;
+	text-align: center;
+}
+#DOLBY_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#DOLBY_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#DOLBY_section1 > img {
+	width: 1000px;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}

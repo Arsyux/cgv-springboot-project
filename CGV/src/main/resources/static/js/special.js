@@ -26,6 +26,7 @@ $(document).ready(function () {
 		preloadImages: 'visible',
 		mode: 'fade'
     });
+	
 });
 
 function special_prev() {
@@ -47,12 +48,12 @@ function special_prev() {
 		$("#special_arrow_right").css("opacity", "1");
 		$("#special_arrow_right").css("cursor", "pointer");
 	}
-	
+
 }
 
 function special_next() {
 	let nowPage = $("#page").val();
-	
+
 	if(nowPage == 1) {
 		$(".cinemaBox").css("transform", "translateX(-940px)");
 		$("#page").val(2);
@@ -69,4 +70,5 @@ function special_next() {
 		$("#special_arrow_right").css("opacity", "0.2");
 		$("#special_arrow_right").css("cursor", "auto");
 	}
+	
 }
