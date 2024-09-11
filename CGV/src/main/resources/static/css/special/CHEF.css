@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/* CHEF 영역 */
+#CHEF_section1 {
+ 	width: 1000px;
+	height: 270px;
+	margin: 0 auto;
+	text-align: center;
+}
+#CHEF_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+	margin-top: 80px;
+}
+#CHEF_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#CHEF_section1 > p.line {
+	width: 100%;
+	height: 1px;
+	background: #eee;
+	margin-top: 80px;
+}
+
+#CHEF_section2 {
+	width: 1000px;
+	height: 4450px;
+	margin: 0 auto;
+	text-align: center;
+}
+#CHEF_section2 > h2 {
+	color: #222;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	text-align: left;
+	margin-top: 50px;
+}
+
+#CHEF_section2 > p {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 20px;
+	text-align: left;
+}
+#CHEF_section2 > img {
+	width: 1000px;
+	margin-top: 30px;
+}
+
+#CHEF_section2 > div.down_group2 {
+	margin-top: 50px;
+	display: flex;
+	flex: 1 1;
+}
+#CHEF_section2 > div.down_group2 > img {
+	width: 485px;
+}
+#CHEF_section2 > div.down_group2 > img:first-child {
+	margin-right: 10px;
+}
+
+#CHEF_section2 > p > span {
+	display: inline-block;
+	color: #666;
+	font-size: 24px;
+	margin-top: 5px;
+}

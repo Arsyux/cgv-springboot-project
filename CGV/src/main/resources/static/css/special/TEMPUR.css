@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+/* TEMPUR 영역 */
+#TEMPUR_section1 {
+ 	width: 1000px;
+	height: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+#TEMPUR_section1 > h2 {
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #222;
+	margin-top: 80px;
+}
+#TEMPUR_section1 > p {
+	margin-top: 10px;
+	font-family: 'Noto_Sans_KR';
+	font-size: 20px;
+	letter-spacing: -1px;
+	color: #222;
+}
+#TEMPUR_section1 > img {
+	width: 100%;
+	margin-top: 50px;	
+}
+
+#TEMPUR_section2 {
+	width: 1000px;
+	height: 1400px;
+	margin: 0 auto;
+	text-align: center;
+}
+#TEMPUR_section2 > h2 {
+	color: #222;
+	font-family: 'Poppins';
+	font-size: 40px;
+	letter-spacing: -1px;
+	text-align: left;
+	margin-top: 50px;
+}
+
+#TEMPUR_section2 > p {
+	color: #222;
+	font-size: 20px;
+	font-family: 'Noto_Sans_KR';
+	letter-spacing: -1px;
+	margin-top: 20px;
+	text-align: left;
+}
+#TEMPUR_section2 > img {
+	width: 1000px;
+	margin-top: 30px;
+}
+
+#TEMPUR_section2 > div.down_group2 {
+	margin-top: 50px;
+	display: flex;
+	flex: 1 1;
+}
+#TEMPUR_section2 > div.down_group2 > img {
+	width: 485px;
+}
+#TEMPUR_section2 > div.down_group2 > img:first-child {
+	margin-right: 10px;
+}
