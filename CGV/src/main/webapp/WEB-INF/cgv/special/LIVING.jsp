@@ -33,7 +33,7 @@
 </div>
 
 <!-- LIVING 영역 -->
-<div id="FORET_section1">
+<div id="LIVING_section1">
 	
 	<h2>CINE & LIVING ROOM</h2>
 	<p>
@@ -42,7 +42,7 @@
 	<p class="line">
 </div>
 
-<div id="FORET_section2">
+<div id="LIVING_section2">
 	<h2>유니크한 공간</h2>
 	<p>
 	거실에 대한 로망을 담은 다양한 테마로 구성된 공간에서 편안하고 특별한 매력을 즐겨보세요
