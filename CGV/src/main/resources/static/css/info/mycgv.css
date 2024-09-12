@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+#info_main > h1 {
+	color: #222;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+#info_main > table > tbody > tr > td > img.profile {
+	width: 135px;
+	height: 135px;
+	border-radius: 50%;
+}

@@ -34,7 +34,7 @@
                     <a href="#a">극장</a>
                     <ul class="sub">
                         <li><a href="#a">CGV 극장</a></li>
-                        <li><a href="special">특별관</a></li>
+                        <li><a href="/special">특별관</a></li>
                     </ul>
                 </li>
                 <li>
@@ -110,7 +110,7 @@
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="/auth/join">
+	                    <a href="/info/mycgv">
 	                        <img id="loginJoin" src="../images/common/loginMember.png">
 	                        <p>MY CGV</p>
 	                    </a>

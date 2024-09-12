@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ import com.arsyux.cgv.domain.UserVO;
 import com.arsyux.cgv.dto.ResponseDTO;
 import com.arsyux.cgv.dto.UserDTO;
 import com.arsyux.cgv.dto.UserDTO.InsertUserValidationGroup;
+import com.arsyux.cgv.security.UserDetailsImpl;
 import com.arsyux.cgv.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -87,5 +89,28 @@ public class UserController {
 		
 		return new ResponseDTO<>(HttpStatus.OK.value(), user.getName() + "님 환영합니다!");		
 	}
-
+	
+	// MY CGV
+	@GetMapping("/info/mycgv")
+	public String mycgv(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
+		
+		UserVO user = principal.getUser();
+		
+		model.addAttribute("page", "mycgv");
+		model.addAttribute("user", user);
+		
+		return "info/mycgv";
+	}
+	
+	// 나의 예매내역
+	@GetMapping("/info/myticketing")
+	public String myticketing(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
+		
+		UserVO user = principal.getUser();
+		
+		model.addAttribute("page", "myticketing");
+		model.addAttribute("user", user);
+		
+		return "info/myticketing";
+	}
 }
