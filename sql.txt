@@ -18,3 +18,6 @@ agree_stamp bool default false,
 credate datetime default NOW(),
 change_password datetime default NOW(),
 role varchar(10) default 'user');
+
+ALTER TABLE cgv.tb_user ADD profile varchar(100) default 'noimage' AFTER name;
+ALTER TABLE cgv.tb_user ADD grade varchar(10) default 'normal' AFTER profile;
