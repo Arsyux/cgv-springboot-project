@@ -54,7 +54,7 @@
         <tr>
             <th>이메일</th>
             <td>
-            	<input id="email" oninput="email_regex()" type="email" required autocomplete='off'>
+            	<input id="email" oninput="email_regex()" type="email" required autocomplete='off'>	
                  @ 
                 <input type="url" onblur="emailurl_regex()" id="input_email" required autocomplete='off'>
                 <select id="select_email" onchange="select_email()">

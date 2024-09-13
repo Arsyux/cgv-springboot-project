@@ -95,9 +95,18 @@ public class UserController {
 	public String mycgv(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
 		
 		UserVO user = principal.getUser();
-		
+
+		// navi에 표시할 현재 페이지
 		model.addAttribute("page", "mycgv");
+		
+		// 유저 정보
 		model.addAttribute("user", user);
+		
+		// 이메일 자르기
+		String email_id = user.getEmail().substring(0, user.getEmail().indexOf("@"));
+		model.addAttribute("email_id", email_id);
+		String email_url = user.getEmail().substring(user.getEmail().indexOf("@") + 1, user.getEmail().length());
+		model.addAttribute("email_url", email_url);
 		
 		return "info/mycgv";
 	}
@@ -108,8 +117,13 @@ public class UserController {
 		
 		UserVO user = principal.getUser();
 		
+		// navi에 표시할 현재 페이지
 		model.addAttribute("page", "myticketing");
+		
+		// 유저 정보
 		model.addAttribute("user", user);
+		
+		//model.addAttribute("url", url);
 		
 		return "info/myticketing";
 	}

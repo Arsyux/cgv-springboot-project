@@ -10,6 +10,9 @@
 	<a href="#a">회원정보</a>	
 	<a href="#a">프로필 관리</a>	
 	<a href="#a">나의 문의내역</a>	
+	<c:if test="${ user.role } == 'admin'">
+		<a href="#a">나의 문의내역2</a>	
+	</c:if>
 	
 </div>
 

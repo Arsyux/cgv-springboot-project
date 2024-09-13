@@ -1,74 +1,10 @@
 $(document).ready(function() {
 
-    // 연도 설정
-    let yyyy = document.getElementById('year');
-    let now_yyyy = new Date().getFullYear();
-    let opt;
-    for(let i=now_yyyy; i>=1900; i--) {
-        opt = document.createElement("option");
-        opt.textContent = i;
-        opt.value = i;
-        yyyy.appendChild(opt);
-    }
-    // 월 설정
-    let mm = document.getElementById('month');
-    for(let i=1; i<=12; i++) {
-        opt = document.createElement("option");
-        opt.textContent = i;
-        opt.value = i;
-        mm.appendChild(opt);
-    }
-    //일 설정
-    let dd = document.getElementById('day');
-    for(let i=1; i<=31; i++) {
-        opt = document.createElement("option");
-        opt.textContent = i;
-        opt.value = i;
-        dd.appendChild(opt);
-    }
+    
 
 });
-// 연도 선택시 일 재설정
-function select_year() {
-    let yyyy = document.getElementById('year');
-    let mm = document.getElementById('month');
-    let dd = document.getElementById('day');
-    let opt = dd.getElementsByTagName('option');
-    const len = opt.length;
-    for(let i=1; i<len; i++) {
-        opt[1].remove();
-    }
-    if(yyyy.value === NaN) { return; }
-    if(mm.value === NaN) { return; }
-    var last = new Date(yyyy.value, mm.value, 0);
-    for(let i=1; i<=last.getDate(); i++) {
-        opt = document.createElement("option");
-        opt.textContent = i;
-        opt.value = i;
-        dd.appendChild(opt);
-    }
-}
-// 월 선택시 일 재설정
-function select_month() {
-    let yyyy = document.getElementById('year');
-    let mm = document.getElementById('month');
-    let dd = document.getElementById('day');
-    let opt = dd.getElementsByTagName('option');
-    const len = opt.length;
-    for(let i=1; i<len; i++) {
-        opt[1].remove();
-    }
-    if(yyyy.value === NaN) { return; }
-    if(mm.value === NaN) { return; }
-    var last = new Date(yyyy.value, mm.value, 0);
-    for(let i=1; i<=last.getDate(); i++) {
-        opt = document.createElement("option");
-        opt.textContent = i;
-        opt.value = i;
-        dd.appendChild(opt);
-    }
-}
 
+/* 이메일 선택 */
 function select_email() {
     let sel = $('#select_email')[0].value;
     switch(sel) {
@@ -94,23 +30,6 @@ function select_email() {
             break;
     }
 	$('#email_regex')[0].textContent = '';
-}
-
-// 아이디 정규식
-function id_regex() {
-    let val = $('#id')[0].value;
-    
-    if(!/^[a-zA-Z][a-zA-Z0-9]{4,14}$/g.exec(val)) {
-        if(!/^[a-zA-Z]/.exec(val)) {
-            $('#id_regex')[0].textContent = '첫 글자는 알파벳을 사용해주세요.';    
-            return;
-        }
-
-        $('#id_regex')[0].textContent = '아이디는 5글자 이상 15글자 이하의 알파벳과 숫자를 사용하여 입력해주세요.';
-        return;
-    }
-    
-    $('#id_regex')[0].textContent = '';
 }
 
 // 비밀번호 정규식
@@ -145,74 +64,6 @@ function pwchk_regex() {
     }
     
     $('#pwchk_regex')[0].textContent = '';
-}
-
-// 이름 입력시 정규식
-function name_regex1() {
-    let val = $('#name')[0].value;
-
-    if(val == '') {
-        $('#name_regex')[0].textContent = '';
-        return;
-    }
-
-    if(!/^[ㄱ-ㅎ가-힣]{1,}$/g.exec(val)) {
-        $('#name_regex')[0].textContent = '한글을 입력해주세요.';
-        return;
-    }
-    
-    $('#name_regex')[0].textContent = '';
-}
-
-// 이름 입력 완료시 정규식
-function name_regex2() {
-    let val = $('#name')[0].value;
-
-    if(val == '' || val.length < 2) {
-        $('#name_regex')[0].textContent = '';
-        return;
-    }
-
-    if(!/^[가-힣]{2,10}$/g.exec(val)) {
-        $('#name_regex')[0].textContent = '이름을 정확히 입력해주세요.';
-        return;
-    }
-    
-    $('#name_regex')[0].textContent = '';
-}
-
-// 휴대전화 입력시 정규식
-function phone_regex1() {
-    let val = $('#phone')[0].value;
-
-    if(val == '') {
-        $('#phone_regex')[0].textContent = '';
-        return;
-    }
-
-    if(!/^[0-9]{1,}$/g.exec(val)) {
-        $('#phone_regex')[0].textContent = '숫자를 입력해주세요.';
-        return;
-    }
-    
-    $('#phone_regex')[0].textContent = '';
-}
-
-// 휴대전화 입력 완료시 정규식
-function phone_regex2() {
-    let val = $('#phone')[0].value;
-
-    if(val == '') {
-        $('#phone_regex')[0].textContent = '';
-        return;
-    }
-
-    if(!/^(01[016789]{1})-?[0-9]{3,4}-?[0-9]{4}$/g.exec(val)) {
-        $('#phone_regex')[0].textContent = '휴대전화를 정확히 입력해주세요.';
-        return;
-    }
-    
-    $('#phone_regex')[0].textContent = '';
 }
 
 // 이메일 아이디 입력시 정규식
