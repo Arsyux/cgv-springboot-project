@@ -28,4 +28,5 @@ public class UserVO {
 	private Date change_password; // 비밀번호 변경한 날짜
 	private String grade; // 유저 등급(일반, VIP, RVIP, VVIP, SVIP)
 	private String role; // 유저 역할(일반, 관리자)
+	
 }
