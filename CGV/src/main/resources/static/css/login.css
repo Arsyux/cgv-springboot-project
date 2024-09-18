@@ -114,7 +114,7 @@
     vertical-align: middle;
     width: 75px;
     height: 16px;
-    background: url('../images/arrowRight.png') no-repeat right center;
+    background: url('../images/common/arrowRight.png') no-repeat right center;
     font-size: 12px;
     color: #666;
     margin-top: 3px;
@@ -125,7 +125,7 @@
     vertical-align: middle;
     width: 85px;
     height: 16px;
-    background: url('../images/arrowRight.png') no-repeat right center;
+    background: url('../images/common/arrowRight.png') no-repeat right center;
     font-size: 12px;
     color: #666;
     margin-top: 3px;

@@ -2,10 +2,8 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<link rel="stylesheet" href="../css/login.css">
 <title>CGV 로그인</title>
 <link rel="stylesheet" href="../css/login.css">
-<script src="../js/login.js"></script>
 
 <%@ include file="../layout/navi.jsp"%>
 <!-- 공통 상단영역 끝 -->
@@ -27,8 +25,8 @@
 	
 	
     <form action="/auth/securitylogin" method="post">
-    	<input name="username" type="text">
-        <input name="password" type="password">
+    	<input name="username" type="text" value="a123123">
+        <input name="password" type="password" value="a123123!">
         <button class="btn_login"><span>로그인</span></button>         
 	</form>
     

@@ -1,21 +1,21 @@
 @charset "UTF-8";
 
-#info_main > h1 {
+#info_main > form > h1 {
 	color: #222;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #ddd;
 }
-#info_main > table {
+#info_main > form > table {
 	margin-top: 20px;
 	width: 100%;
 	border-collapse: collapse;
 }
-#info_main > table > tbody > tr > th {
+#info_main > form > table > tbody > tr > th {
 	background: #f8f8f8;
 	width: 15%;
 	height: 50px;
 }
-#info_main > table > tbody > tr:nth-child(1) > th {
+#info_main > form > table > tbody > tr:nth-child(1) > th {
 	box-sizing: border-box;
 	height: 120px;
 }
@@ -23,13 +23,13 @@
 
 
 
-#info_main > table > tbody > tr > td {
+#info_main > form > table > tbody > tr > td {
 	box-sizing: border-box;
 	padding-left: 20px;
 }
 
 /* 프로필 사진 */
-#info_main > table > tbody > tr > td > img.profile {
+#info_main > form > table > tbody > tr > td > img.profile {
 	display: inline-block;
 	vertical-align: middle;
 	width: 100px;
@@ -37,14 +37,14 @@
 	border-radius: 50%;
 	margin-right: 20px;
 }
-#info_main > table > tbody > tr > td > label {
+#info_main > form > table > tbody > tr > td > label {
 	font-size: 14px;
 	color: #222;
 }
 
-#info_main > table > tbody > tr > td > input[type="password"],
-#info_main > table > tbody > tr > td > input[type="email"],
-#info_main > table > tbody > tr > td > input[type="url"] {
+#info_main > form > table > tbody > tr > td > input[type="password"],
+#info_main > form > table > tbody > tr > td > input[type="email"],
+#info_main > form > table > tbody > tr > td > input[type="url"] {
     width: 300px;
     height: 30px;
     border: 1px solid #ddd;
@@ -52,16 +52,16 @@
     box-sizing: border-box;
 }
 
-#info_main > table > tbody > tr > td > input[type="email"],
-#info_main > table > tbody > tr > td > input[type="url"] {
+#info_main > form > table > tbody > tr > td > input[type="email"],
+#info_main > form > table > tbody > tr > td > input[type="url"] {
     width: 150px;
 }
-#info_main > table > tbody > tr > td > select#select_email {
+#info_main > form > table > tbody > tr > td > select#select_email {
     width: 150px;
     height: 30px;
     border: 1px solid #ddd
 }
-#info_main > table > tbody > tr > td > p.re {
+#info_main > form > table > tbody > tr > td > p.re {
     margin-left: 5px;
     margin-top: 5px;
     color: #dc143c;
@@ -69,31 +69,31 @@
 }
 
 /* CJ ONE 마케팅 정보 수신 동의 */
-#info_main > table > tbody > tr > th.marketing {
+#info_main > form > table > tbody > tr > th.marketing {
 	font-size: 14px;
 }
 
-#info_main > table > tbody > tr > td > p.txt1 {
+#info_main > form > table > tbody > tr > td > p.txt1 {
     font-size: 15px;
     font-weight: bold;
     color: #555;
 }
 
-#info_main > table > tbody > tr > td > div#chkBoxs {
+#info_main > form > table > tbody > tr > td > div#chkBoxs {
     margin-top: 20px;
 }
-#info_main > table > tbody > tr > td > div#chkBoxs label {
+#info_main > form > table > tbody > tr > td > div#chkBoxs label {
     margin-right: 20px;
 }
 
-#info_main > table > tbody > tr > td > p.txt2 {
+#info_main > form > table > tbody > tr > td > p.txt2 {
     font-size: 12px;
     margin-top: 20px;
     color: #777;
     line-height: 1.8;
 }
 
-#info_main > table > tbody > tr > td > p.txt2 > a {
+#info_main > form > table > tbody > tr > td > p.txt2 > a {
     display: inline-block;
     width: 180px;
     height: 18px;
@@ -191,36 +191,36 @@
     color: #555;
 }
 #agree1 > table > tbody > tr > td:nth-child(1) {
-    font-size: 17px;
+    font-size: 12px;
     text-decoration: underline;
     font-weight: bold;
 }
 #agree1 > table > tbody > tr > td:nth-child(2) {
-    font-size: 15px;
+    font-size: 12px;
 }
 #agree1 > table > tbody > tr > td:nth-child(3) {
-    font-size: 17px;
+    font-size: 12px;
     text-decoration: underline;
     font-weight: bold;
     text-align: center;
 }
 
 #agree2 > table > tbody > tr > td:nth-child(1) {
-    font-size: 17px;
+    font-size: 12px;
     text-decoration: underline;
     font-weight: bold;
 }
 #agree2 > table > tbody > tr > td:nth-child(2) {
-    font-size: 17px;
+    font-size: 12px;
     letter-spacing: -1px;
     text-decoration: underline;
     font-weight: bold;
 }
 #agree2 > table > tbody > tr > td:nth-child(3) {
-    font-size: 15px;
+    font-size: 12px;
 }
 #agree2 > table > tbody > tr > td:nth-child(4) {
-    font-size: 17px;
+    font-size: 12px;
     text-decoration: underline;
     font-weight: bold;
 }

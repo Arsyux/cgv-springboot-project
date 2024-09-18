@@ -1,8 +1,29 @@
-$(document).ready(function() {
-
-    
-
+$(document).ready(function() { 
+	
 });
+
+function uploadProfileImgTemp() {
+	console.log('테스트');
+	let formData = new FormData();
+	let inputFile = $("#profileImgUpload")[0];
+	let file = inputFile.files[0];
+	
+	console.log(file);
+	
+	formData.append("profileImgUpload", file);
+	
+	$.ajax({
+		type : "POST",
+		url : "/uploadProfileImgTemp",
+		data : formData,
+		//enctype : 'multipart/form-data',
+		contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
+        processData: false,  // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
+		success : function(response) {
+			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
+		}
+	}); // $.ajax
+}
 
 /* 이메일 선택 */
 function select_email() {
