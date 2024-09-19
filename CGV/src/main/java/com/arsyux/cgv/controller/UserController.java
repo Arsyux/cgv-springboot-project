@@ -2,6 +2,7 @@ package com.arsyux.cgv.controller;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,8 @@ import com.arsyux.cgv.dto.UserDTO;
 import com.arsyux.cgv.dto.UserDTO.InsertUserValidationGroup;
 import com.arsyux.cgv.security.UserDetailsImpl;
 import com.arsyux.cgv.service.UserService;
+import com.arsyux.cgv.domain.FileUtils;
+import com.arsyux.cgv.domain.FileVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,6 +44,9 @@ public class UserController {
 	@Autowired
 	private ModelMapper modelMapper;
 
+	@Autowired
+	private FileUtils fileUtils;
+	
 	// 프로필 이미지 경로
 	@Value("${FILE_PATH}")
 	private String FILE_PATH;
@@ -130,19 +136,20 @@ public class UserController {
 			UserVO user = principal.getUser();
 			System.out.println("[" + new Date() + "] " + user.getId() + " 프로필 이미지 null 에러");
 			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "프로필 이미지 등록중 에러");
-		} else {
-			
-			System.out.println("데이터 있음");
 		}
 		
-
-		//List<FileVO> filesList = fileUtils.uploadFiles(files);
+		FileVO profileFile = fileUtils.uploadFile(profileImgUpload);
 		
-		//if(filesList == null ) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "업로드 오류"); }
+        // 이미지 경로
+		String profileImgPath = ".." + File.separator
+								+ "images" + File.separator 
+								+ "temp" + File.separator
+								+ profileFile.getRegdate().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyMMdd")).toString() + File.separator
+								+ profileFile.getSave_name();
 		
-		//fileService.insertFiles(postid, filesList);
-		
-		return new ResponseDTO<>(HttpStatus.OK.value(), "게시글을 등록했습니다.");
+		System.out.println(profileImgPath);
+		// 임시 경로를 반환
+		return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
 	}
 	
 		

@@ -2,13 +2,14 @@ $(document).ready(function() {
 	
 });
 
+// 프로필 이미지 업로드
 function uploadProfileImgTemp() {
-	console.log('테스트');
+	//console.log('테스트');
 	let formData = new FormData();
 	let inputFile = $("#profileImgUpload")[0];
 	let file = inputFile.files[0];
 	
-	console.log(file);
+	//console.log(file);
 	
 	formData.append("profileImgUpload", file);
 	
@@ -21,8 +22,15 @@ function uploadProfileImgTemp() {
         processData: false,  // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
 		success : function(response) {
 			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
+			console.log(response["data"]);
+			$("#profileImg").attr("src", response["data"]);
+		},
+		fail : function(error) {
+			alert('이미지 업로드 중 에러가 발생하였습니다.');
 		}
 	}); // $.ajax
+	
+	
 }
 
 /* 이메일 선택 */

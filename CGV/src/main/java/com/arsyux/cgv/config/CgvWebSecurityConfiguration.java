@@ -43,7 +43,7 @@ public class CgvWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests(requests -> requests
                 .antMatchers(
-                		"/webjars/**", "/js/**", "/images/**", "/images/**/**", "/videos/**",
+                		"/webjars/**", "/js/**", "/images/**", "/videos/**",
                         "/css/**", "/font/**", "/summernote/**", "/bxslider/**", "/message/**", "/files/**",
                         "/", "/index", "/auth/**",  "/movies", "/special/**", "/ticket/**"
                         ).permitAll()
