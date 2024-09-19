@@ -64,6 +64,7 @@ public class UserController {
 	
 	// 회원 가입 기능
 	@PostMapping("/auth/join")
+	// 유효성 검사는 주석 처리함
 	//public @ResponseBody ResponseDTO<?> joinUser(@Validated(InsertUserValidationGroup.class) @RequestBody UserDTO userDTO, BindingResult bindingResult) {
 	public @ResponseBody ResponseDTO<?> joinUser(@RequestBody UserDTO userDTO, BindingResult bindingResult) {
 		
@@ -122,12 +123,15 @@ public class UserController {
 	}
 	// 프로필 사진 임시 업로드
 	@PostMapping("/uploadProfileImgTemp")
-	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp(MultipartFile profileImgUpload) {
+	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp(MultipartFile profileImgUpload, @AuthenticationPrincipal UserDetailsImpl principal) {
 
 		if(profileImgUpload == null) {
-			System.out.println(new Date() + ", null 에러");
+
+			UserVO user = principal.getUser();
+			System.out.println("[" + new Date() + "] " + user.getId() + " 프로필 이미지 null 에러");
 			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "프로필 이미지 등록중 에러");
 		} else {
+			
 			System.out.println("데이터 있음");
 		}
 		
@@ -141,36 +145,6 @@ public class UserController {
 		return new ResponseDTO<>(HttpStatus.OK.value(), "게시글을 등록했습니다.");
 	}
 	
-	/*
-	@PostMapping("/uploadProfileImgTemp")
-	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp(@Param("profileImg_upload") List<MultipartFile> files) {
-
-		if(files == null) {
-			System.out.println(new Date() + ", null 에러");
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "프로필 이미지 등록중 에러");
-		} else {
-			System.out.println("데이터 있음");
-		}
-		
-		/*
-		System.out.println("체크 >>> " + files[0].getName());
-		System.out.println("체크 >>> " + files[0].getContentType());
-		System.out.println("체크 >>> " + files[0].getSize());
-		System.out.println("체크 >>> " + files[0].getOriginalFilename());
-		*/
-		//File f = new File("/image/temp/");
-		
-		
-		
-		//List<FileVO> filesList = fileUtils.uploadFiles(files);
-		
-		//if(filesList == null ) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "업로드 오류"); }
-		
-		//fileService.insertFiles(postid, filesList);
-		/*
-		return new ResponseDTO<>(HttpStatus.OK.value(), "게시글을 등록했습니다.");
-	}
-	*/
 		
 	// 나의 예매내역
 	@GetMapping("/info/myticketing")
