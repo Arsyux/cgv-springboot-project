@@ -69,7 +69,7 @@ public class CgvWebMvcConfiguration implements WebMvcConfigurer {
     	String connectPath = "/image/temp/**";;
     	
     	// 임시 업로드 파일 위치
-    	String resourcePath = "file:///" + FILE_PATH + "/temp/";
+    	String resourcePath = "file:///" + FILE_PATH + "/";
     	
         // 업로드 이미지 정적 리소스 설정
         registry.addResourceHandler(connectPath).addResourceLocations(resourcePath);
