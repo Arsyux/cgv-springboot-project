@@ -127,6 +127,7 @@ public class UserController {
 		
 		return "info/mycgv";
 	}
+	
 	// 프로필 사진 임시 업로드
 	@PostMapping("/uploadProfileImgTemp")
 	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp(MultipartFile profileImgUpload, @AuthenticationPrincipal UserDetailsImpl principal) {
@@ -147,7 +148,6 @@ public class UserController {
 								+ profileFile.getRegdate().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyMMdd")).toString() + File.separator
 								+ profileFile.getSave_name();
 		
-		System.out.println(profileImgPath);
 		// 임시 경로를 반환
 		return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
 	}

@@ -1,5 +1,7 @@
 package com.arsyux.cgv.config;
 
+import java.io.File;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -64,14 +66,14 @@ public class CgvWebMvcConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         
     	// 주소창 입력값
-    	String connectPath = "/image/temp/**";
+    	String connectPath = "/image/temp/**";;
     	
     	// 임시 업로드 파일 위치
     	String resourcePath = "file:///" + FILE_PATH + "/temp/";
     	
         // 업로드 이미지 정적 리소스 설정
         registry.addResourceHandler(connectPath).addResourceLocations(resourcePath);
-
+        
         // 기본 정적 파일 설정
         registry.addResourceHandler("resources/**").addResourceLocations("classpath:/static/");
     }

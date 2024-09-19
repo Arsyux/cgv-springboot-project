@@ -22,14 +22,17 @@ function uploadProfileImgTemp() {
         processData: false,  // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
 		success : function(response) {
 			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
-			console.log(response["data"]);
-			$("#profileImg").attr("src", response["data"]);
+			//console.log(response["data"]);
+			
+			// 3초후에 이미지 로드
+			setTimeout(() => {
+				$("#profileImg").attr("src", response["data"]);
+			}, 3000);
 		},
 		fail : function(error) {
 			alert('이미지 업로드 중 에러가 발생하였습니다.');
 		}
 	}); // $.ajax
-	
 	
 }
 

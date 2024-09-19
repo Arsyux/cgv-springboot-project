@@ -1,0 +1,2 @@
+STS4
+General -> Workspace -> [Refresh using native hooks or polling] 체크
