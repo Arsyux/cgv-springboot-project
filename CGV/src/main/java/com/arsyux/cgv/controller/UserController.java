@@ -112,7 +112,10 @@ public class UserController {
 	public String mycgv(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
 		
 		UserVO user = principal.getUser();
-
+		
+		// 유저 정보 갱신
+		user = userService.findById(user.getId());
+		
 		// navi에 표시할 현재 페이지
 		model.addAttribute("page", "mycgv");
 		
@@ -139,7 +142,7 @@ public class UserController {
 			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "프로필 이미지 등록중 에러");
 		}
 		
-		FileVO profileFile = fileUtils.uploadFile(profileImgUpload);
+		FileVO profileFile = fileUtils.uploadFileTemp(profileImgUpload);
 		
         // 이미지 경로
 		String profileImgPath = ".." + File.separator
@@ -152,7 +155,48 @@ public class UserController {
 		return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
 	}
 	
+	// 프로필 사진 업로드
+	@PostMapping("/updateMyCGV")
+	public @ResponseBody ResponseDTO<?> updateProfileImg(@RequestBody UserDTO userDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
 		
+		// UserDTO를 통해 유효성 검사
+		UserVO update_User = modelMapper.map(userDTO, UserVO.class);
+		
+		// 로그인 중인 유저 정보
+		UserVO login_User = principal.getUser();
+		
+		// null 검사
+		if(update_User == null || login_User == null) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "유저 데이터에 오류가 있습니다."); }
+		
+		// 데이터 세팅
+		update_User.setUser_pk(login_User.getUser_pk());
+		update_User.setId(login_User.getId());
+
+		
+		System.out.println(update_User.toString());
+		System.out.println(login_User.toString());
+		
+		FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile());
+		
+		// 
+		
+		
+		// 중복 체크 이후 insert
+		//userService.joinUser(user);
+				
+		/*
+		
+        // 이미지 경로
+		String profileImgPath = ".." + File.separator
+								+ "images" + File.separator 
+								+ "temp" + File.separator
+								+ profileFile.getRegdate().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyMMdd")).toString() + File.separator
+								+ profileFile.getSave_name();
+		 */
+		// 임시 경로를 반환
+		//return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
+		return new ResponseDTO<>(HttpStatus.OK.value(), "");
+	}
 	// 나의 예매내역
 	@GetMapping("/info/myticketing")
 	public String myticketing(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {

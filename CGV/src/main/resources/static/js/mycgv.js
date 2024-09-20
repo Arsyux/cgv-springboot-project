@@ -1,41 +1,3 @@
-$(document).ready(function() { 
-	
-});
-
-// 프로필 이미지 업로드
-function uploadProfileImgTemp() {
-	//console.log('테스트');
-	let formData = new FormData();
-	let inputFile = $("#profileImgUpload")[0];
-	let file = inputFile.files[0];
-	
-	//console.log(file);
-	
-	formData.append("profileImgUpload", file);
-	
-	$.ajax({
-		type : "POST",
-		url : "/uploadProfileImgTemp",
-		data : formData,
-		//enctype : 'multipart/form-data',
-		contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
-        processData: false,  // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
-		success : function(response) {
-			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
-			//console.log(response["data"]);
-			
-			// 3초후에 이미지 로드
-			setTimeout(() => {
-				$("#profileImg").attr("src", response["data"]);
-			}, 3000);
-		},
-		fail : function(error) {
-			alert('이미지 업로드 중 에러가 발생하였습니다.');
-		}
-	}); // $.ajax
-	
-}
-
 /* 이메일 선택 */
 function select_email() {
     let sel = $('#select_email')[0].value;
@@ -158,22 +120,53 @@ function agreeBox_click(box) {
         agree.css('display', 'none')
     }
 }
+// 프로필 이미지 업로드
+function uploadProfileImgTemp() {
+	//console.log('테스트');
+	let formData = new FormData();
+	let inputFile = $("#profileImgUpload")[0];
+	let file = inputFile.files[0];
+	
+	//console.log(file);
+	
+	formData.append("profileImgUpload", file);
+	
+	$.ajax({
+		type : "POST",
+		url : "/uploadProfileImgTemp",
+		data : formData,
+		//enctype : 'multipart/form-data',
+		contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
+        processData: false,  // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
+		success : function(response) {
+			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
+			//console.log(response["data"]);
+			
+			// 3초후에 이미지 로드
+			setTimeout(() => {
+				$("#profileImg").attr("src", response["data"]);
+			}, 3000);
+		},
+		fail : function(error) {
+			alert('이미지 업로드 중 에러가 발생하였습니다.');
+		}
+	}); // $.ajax
+	
+}
 
-function btn_join_click() {
-	let birth = $("#year").val() + $("#month").val().padStart(2, "0") + $("#day").val().padStart(2, "0");
+// 사용자 MY CGV 업데이트
+function btn_update_click() {
+	
 	let email = $("#email").val() + "@" + $("#input_email").val();
 	let marketing_email = $('#marketing_email')[0].checked;
 	let marketing_sms = $('#marketing_sms')[0].checked;
 	let marketing_phone = $('#marketing_phone')[0].checked;
 	let agree_promotion = $('#rdo_agree1')[0].checked;
 	let agree_stamp = $('#rdo_agree2')[0].checked;
-	
+		
 	let user = {
-		id : $("#id").val(),
 		password : $("#pw").val(),
-		name : $("#name").val(),
-		birth : birth,
-		phone : $("#phone").val(),
+		profile : $("#profileImg").attr("src"),
 		email : email,
 		marketing_email : marketing_email,
 		marketing_sms : marketing_sms,
@@ -184,22 +177,19 @@ function btn_join_click() {
 	
 	$.ajax({
 		type: "POST",
-		url: "/auth/join",
+		url: "/updateMyCGV",
 		data: JSON.stringify(user),
 		contentType: "application/json; charset=utf-8"
 	}).done(function(response) {
 		let status = response["status"];
 		if(status == 200) {
-			// 회원가입 성공
-			let message = response["data"];
-			alert(message);
-			location = "/";	
+			// 정보 수정 성공
+			//location = "/";	
 		} else {
-			// 회원가입 실패
-			alert('회원가입 실패!');
+			// 정보 수정 실패
+			alert('MY CGV 업데이트중 에러가 발생하였습니다.');
 		}
 	}).fail(function(error) {
 		alert("에러 발생 : " + error);
 	});
-			
 }

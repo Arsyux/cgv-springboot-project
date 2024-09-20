@@ -27,11 +27,8 @@
 				<tr>
 					<th>프로필 사진</th>
 					<td>
-						<c:if test="${ user.profile == 'noimage' }">
-							<img id="profileImg" class="profile" src="../images/common/default_profile.gif">
-							
-							<input id="profileImgUpload" name="profileImgUpload" type="file" onchange="uploadProfileImgTemp()">
-						</c:if>
+						<img id="profileImg" class="profile" src="${ user.profile }">
+						<input id="profileImgUpload" name="profileImgUpload" type="file" onchange="uploadProfileImgTemp()">
 					</td>
 				</tr>
 				<tr>
@@ -184,10 +181,12 @@
 						</div>
 					</td>
 				</tr>
-		
 			</table>
 		
 		</form>
+		<div class="btn_update_area">
+			<button class="btn_update" onclick="btn_update_click()">내 정보 변경</button>
+		</div>
 	</div>
 	
 	

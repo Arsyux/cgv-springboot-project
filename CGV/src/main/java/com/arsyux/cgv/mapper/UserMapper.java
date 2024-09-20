@@ -3,6 +3,7 @@ package com.arsyux.cgv.mapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.arsyux.cgv.domain.UserVO;
 
@@ -25,4 +26,7 @@ public interface UserMapper {
 	
 	@Select("SELECT * FROM tb_user WHERE id = #{id}")
 	public UserVO findById(String id);
+	
+	@Update("")
+	public void updateMyCGV(UserVO user);
 }

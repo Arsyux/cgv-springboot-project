@@ -26,4 +26,8 @@ public class UserDAO {
 		return mybatis.selectOne("findById", id);
 	}
 	
+	// MY CGV 업데이트
+	public void updateMyCGV(UserVO user) {
+		mybatis.update("updateMyCGV", user);
+	}
 }

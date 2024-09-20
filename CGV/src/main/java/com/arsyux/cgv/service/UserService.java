@@ -38,5 +38,12 @@ public class UserService {
 		return  userDAO.findById(user);
 	}
 	
-	
+	// MY CGV 업데이트
+	@Transactional
+	public void updateMyCGV(UserVO user) {
+		// 비밀번호 암호화
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		// 회원 정보 저장
+		userDAO.updateMyCGV(user);
+	}
 }

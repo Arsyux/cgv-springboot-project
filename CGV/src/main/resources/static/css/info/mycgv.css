@@ -233,3 +233,24 @@
     padding-right: 10px;
     margin-top: 10px;
 }
+
+
+div.btn_update_area {
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+div.btn_update_area button.btn_update {
+    width: 160px;
+    height: 40px;
+    background: #ed3124;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}

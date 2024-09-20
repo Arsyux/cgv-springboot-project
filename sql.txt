@@ -21,5 +21,5 @@ role varchar(10) default 'user');
 
 -- 내용 추가
 
-ALTER TABLE cgv.tb_user ADD profile varchar(100) default 'noimage' AFTER password;
+ALTER TABLE cgv.tb_user ADD profile varchar(100) default '../images/common/default_profile.gif' AFTER password;
 ALTER TABLE cgv.tb_user ADD grade varchar(10) default 'normal' AFTER change_password;

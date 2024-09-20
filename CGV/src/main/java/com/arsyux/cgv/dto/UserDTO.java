@@ -77,5 +77,7 @@ public class UserDTO {
 
 	// 관리자 여부
 	private String role;
-			
+	
+	// 프로필 경로
+	private String profile;
 }
