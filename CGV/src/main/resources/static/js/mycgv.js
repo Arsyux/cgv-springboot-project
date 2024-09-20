@@ -142,10 +142,10 @@ function uploadProfileImgTemp() {
 			//console.log("이미지를 서버에 전송하였습니다. 이미지 경로: " + response["data"]);
 			//console.log(response["data"]);
 			
-			// 3초후에 이미지 로드
+			// 5초후에 이미지 로드
 			setTimeout(() => {
 				$("#profileImg").attr("src", response["data"]);
-			}, 3000);
+			}, 5000);
 		},
 		fail : function(error) {
 			alert('이미지 업로드 중 에러가 발생하였습니다.');
