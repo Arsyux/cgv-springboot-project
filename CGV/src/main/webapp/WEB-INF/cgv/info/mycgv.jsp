@@ -57,14 +57,14 @@
 				<tr>
 					<th>비밀번호</th>
 					<td>
-						<input id="pw" type="password" oninput="pw_regex()" required autocomplete='off'>
+						<input id="pw" type="password" oninput="pw_regex()" required autocomplete='off' value="a123123!">
 						<p id="pw_regex" class="re"></p>
 					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
 		            <td>
-		            	<input id="pwchk" type="password" oninput="pwchk_regex()" required autocomplete='off'>
+		            	<input id="pwchk" type="password" oninput="pwchk_regex()" required autocomplete='off' value="a123123!">
 		            	<p id="pwchk_regex" class="re"></p>
 	            	</td>
 				</tr>
@@ -103,17 +103,42 @@
 			            아래 채널을 선택하실 경우 해당 채널을 통한 마케팅 수신에 동의하신 것으로 봅니다.</p>
 			            
 			            <div id="chkBoxs">
-			                <input type="checkbox" id="marketing_all" onclick="marketing_all_click()">
-			                <label for="marketing_all">전체 동의</label>
-			            
-			                <input type="checkbox" id="marketing_email" onclick="marketing_click()">
-			                <label for="marketing_email">이메일</label>
+			            	<c:if test="${ user.marketing_email == 'true' && user.marketing_sms == 'true' && user.marketing_phone == 'true' }">
+			                	<input type="checkbox" id="marketing_all" onclick="marketing_all_click()" checked="checked">
+			                	<label for="marketing_all">전체 동의</label>
+			            	</c:if>
+			            	<c:if test="${ !(user.marketing_email == 'true' && user.marketing_sms == 'true' && user.marketing_phone == 'true') }">
+			                	<input type="checkbox" id="marketing_all" onclick="marketing_all_click()">
+			                	<label for="marketing_all">전체 동의</label>
+			            	</c:if>
+			            	
+			            	<c:if test="${ user.marketing_email == 'true' }">
+				                <input type="checkbox" id="marketing_email" onclick="marketing_click()" checked="checked">
+			                	<label for="marketing_email">이메일</label>
+			            	</c:if>
+			                <c:if test="${ user.marketing_email == 'false' }">
+			                	<input type="checkbox" id="marketing_email" onclick="marketing_click()">
+			                	<label for="marketing_email">이메일</label>
+			                </c:if>
 			                
-			                <input type="checkbox" id="marketing_sms" onclick="marketing_click()">
-			                <label for="marketing_sms">SMS</label>
+			            	<c:if test="${ user.marketing_sms == 'true' }">
+		                		<input type="checkbox" id="marketing_sms" onclick="marketing_click()" checked="checked">
+		                		<label for="marketing_sms">SMS</label>
+			                </c:if>
+			                <c:if test="${ user.marketing_sms == 'false' }">
+			                	<input type="checkbox" id="marketing_sms" onclick="marketing_click()">
+		                		<label for="marketing_sms">SMS</label>
+			                </c:if>
 			                
-			                <input type="checkbox" id="marketing_phone" onclick="marketing_click()">
-			                <label for="marketing_phone">휴대전화</label>
+			            	<c:if test="${ user.marketing_phone == 'true' }">
+			                	<input type="checkbox" id="marketing_phone" onclick="marketing_click()" checked="checked">
+		                		<label for="marketing_phone">휴대전화</label>
+			                </c:if>
+			                <c:if test="${ user.marketing_phone == 'false' }">
+			                	<input type="checkbox" id="marketing_phone" onclick="marketing_click()">
+		                		<label for="marketing_phone">휴대전화</label>
+			                </c:if>
+		                	
 			            </div>
 			
 			            <p class="txt2">
@@ -146,10 +171,18 @@
 						        </tbody>
 						    </table>
 						    <div class="agree_choose">
-						        <input type="radio" id="rdo_disagree1" name="agree1" checked>
-						        <label for="rdo_disagree1">비동의</label>
-						        <input type="radio" id="rdo_agree1" name="agree1">
-						        <label for="rdo_agree1">동의</label>
+						    	<c:if test="${ user.agree_promotion == 'true' }">
+							        <input type="radio" id="rdo_disagree1" name="agree1">
+							        <label for="rdo_disagree1">비동의</label>
+							        <input type="radio" id="rdo_agree1" name="agree1" checked>
+							        <label for="rdo_agree1">동의</label>
+						    	</c:if>
+						    	<c:if test="${ user.agree_promotion == 'false' }">
+							        <input type="radio" id="rdo_disagree1" name="agree1" checked>
+							        <label for="rdo_disagree1">비동의</label>
+							        <input type="radio" id="rdo_agree1" name="agree1">
+							        <label for="rdo_agree1">동의</label>
+						    	</c:if>
 						    </div>
 						</div>
 						<div id="agreeBox2" onclick="agreeBox_click(this.id)">스탬프 서비스 이용을 위한 개인정보 수집 및 활용 동의</div>
@@ -173,10 +206,18 @@
 						        </tbody>
 						    </table>
 						    <div class="agree_choose">
-						        <input type="radio" id="rdo_disagree2" name="agree2" checked>
-						        <label for="rdo_disagree2">비동의</label>
-						        <input type="radio" id="rdo_agree2" name="agree2">
-						        <label for="rdo_agree2">동의</label>
+						    	<c:if test="${ user.agree_stamp == 'true' }">
+							        <input type="radio" id="rdo_disagree2" name="agree2">
+							        <label for="rdo_disagree2">비동의</label>
+							        <input type="radio" id="rdo_agree2" name="agree2">
+							        <label for="rdo_agree2">동의</label>
+						    	</c:if>
+						    	<c:if test="${ user.agree_stamp == 'false' }">
+							        <input type="radio" id="rdo_disagree2" name="agree2" checked>
+							        <label for="rdo_disagree2">비동의</label>
+							        <input type="radio" id="rdo_agree2" name="agree2">
+							        <label for="rdo_agree2">동의</label>
+						    	</c:if>
 						    </div>
 						</div>
 					</td>

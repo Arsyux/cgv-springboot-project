@@ -163,7 +163,7 @@ function btn_update_click() {
 	let marketing_phone = $('#marketing_phone')[0].checked;
 	let agree_promotion = $('#rdo_agree1')[0].checked;
 	let agree_stamp = $('#rdo_agree2')[0].checked;
-		
+	
 	let user = {
 		password : $("#pw").val(),
 		profile : $("#profileImg").attr("src"),
@@ -184,7 +184,8 @@ function btn_update_click() {
 		let status = response["status"];
 		if(status == 200) {
 			// 정보 수정 성공
-			//location = "/";	
+			//location = "/";
+			location ="/info/mycgv";
 		} else {
 			// 정보 수정 실패
 			alert('MY CGV 업데이트중 에러가 발생하였습니다.');

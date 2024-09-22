@@ -2,8 +2,10 @@ package com.arsyux.cgv.domain;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -64,6 +66,7 @@ public class FileUtils {
 	
 	// 단일 파일을 임시 경로에 저장
 	public FileVO uploadFileTemp(MultipartFile multipartFile) {
+		
 		if (multipartFile.isEmpty()) { return null; }
 
 		// 임시 폴더 청소
@@ -75,6 +78,7 @@ public class FileUtils {
         String uploadPath = getUploadPath("/temp/" + today) + File.separator + saveName;
         File uploadFile = new File(uploadPath);
         
+        System.out.println(uploadPath);
         
         try {
             multipartFile.transferTo(uploadFile);
@@ -99,16 +103,20 @@ public class FileUtils {
         	File[] files = clearfile.listFiles();
         	
         	for(int i=0; i<files.length; i++) {
+        		
         		if(files[i].isDirectory()) {
-        			// 폴더안의 내용 삭제
+        			// 폴더인지 확인 후 폴더 안의 내용 삭제
         			deleteFileTempDate(files[i].getName());
+
+        			// 삭제했다 만드는 경우 시간이 걸리므로 오늘 날짜의 폴더는 보존
         			LocalDateTime today_now = LocalDateTime.now();
     		        String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-        		       
-    		        // 삭제했다 만드는 경우 시간이 걸리므로 오늘 날짜의 폴더는 보존
-        			if(files[i].getName() != today) { files[i].delete(); }
-        			
-        			System.out.println("폴더 삭제: " + files[i].getName());
+        		    
+        			if(!files[i].getName().equals(today)) {
+        				// 오늘날짜가 아닌 경우
+        				files[i].delete();
+        				System.out.println("폴더 삭제: " + files[i].getName());
+        			}
         		}
         	}
         }
@@ -152,16 +160,13 @@ public class FileUtils {
 		// 폴더 이름
 		String folderName = cutStr.substring(cutStr.lastIndexOf("/") + 1);
 		
-		// 저장될 파일 이름
-		String saveName = generateSaveFilename(fileName);
-		
 		// 현재 시간
         LocalDateTime today_now = LocalDateTime.now();
         String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
         
         // 저장 경로
-        String uploadPath = getUploadPath("/profile/" + today) + File.separator + saveName;
-        		
+        String uploadPath = getUploadPath("/profile/" + today) + File.separator + fileName;
+        
 		// 폴더 이름이 common일 경우 -> 기본 이미지 일 경우
 		if(folderName == "common") {
 			// default 이미지 경로를 리턴
@@ -175,36 +180,34 @@ public class FileUtils {
 		// 폴더 이름이 common이 아닐 경우 -> 이미지를 업로드 한 경우
 		
 		// 이전 파일 경로
-		Path oldFile = Paths.get(removeFilePath);
-		System.out.println(oldFile);
-		System.out.println(uploadPath);
+		Path oldFile = Paths.get(FILE_PATH + "/temp/" + folderName + "/" + fileName);
+		//System.out.println("oldFile: " + oldFile);
+		//System.out.println("uploadPath: " + uploadPath);
 		
 		// 새로운 파일 경로
-		//Path newFile = Paths.get(null)
+		Path newFile = Paths.get(uploadPath);
 		
+		try {
+			Files.move(oldFile, newFile, StandardCopyOption.ATOMIC_MOVE);
+		} catch (IOException ex) {
+			System.out.println("프로필 이미지 이동중 에러 발생: " + ex.getMessage());
+			// default 이미지 경로 초기화
+			FileVO file = new FileVO();
+			file.setOriginal_name("default_profile.gif");
+			file.setSave_name("default_profile.gif");
+			file.setRegdate(Timestamp.valueOf(today_now));
+			return file;
+		}
 		
-		// 이동할 파일 경로 설정
+		// 임피 폴더 청소
+		deleteFileTemp();
 		
-		
-		
-		// 이동할 파일 경로
-		/*
-		Path newFile = Path.get(moveFilePath);
-		
-		
-		String saveName = generateSaveFilename(multipartFile.getOriginalFilename());
-        LocalDateTime today_now = LocalDateTime.now();
-        String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-        String uploadPath = getUploadPath(today) + File.separator + saveName;
-        File uploadFile = new File(uploadPath);
-        */
-		
+		// 파일 객체 return
 		FileVO file = new FileVO();
-        /*
-		file.setOriginal_name(multipartFile.getOriginalFilename());
-        file.setSave_name(saveName);
+		file.setOriginal_name(fileName);
+        file.setSave_name(fileName);
         file.setRegdate(Timestamp.valueOf(today_now));
-		*/
+        
         return file;
 	}
 	

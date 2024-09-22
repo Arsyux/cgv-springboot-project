@@ -1,6 +1,7 @@
 package com.arsyux.cgv.controller;
 
 import java.io.File;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -168,34 +169,23 @@ public class UserController {
 		// null 검사
 		if(update_User == null || login_User == null) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "유저 데이터에 오류가 있습니다."); }
 		
+
+		// 임시 폴더에서 저장 폴더로 옮김
+		FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile());
+		
+		LocalDateTime time = file.getRegdate().toLocalDateTime();
+        String str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+        
+		
 		// 데이터 세팅
 		update_User.setUser_pk(login_User.getUser_pk());
 		update_User.setId(login_User.getId());
-
+		update_User.setProfile("../images/profile/" + str_time + "/" + file.getSave_name());
 		
-		System.out.println(update_User.toString());
-		System.out.println(login_User.toString());
+		// 데이터 업데이트
+		userService.updateMyCGV(update_User);
 		
-		FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile());
-		
-		// 
-		
-		
-		// 중복 체크 이후 insert
-		//userService.joinUser(user);
-				
-		/*
-		
-        // 이미지 경로
-		String profileImgPath = ".." + File.separator
-								+ "images" + File.separator 
-								+ "temp" + File.separator
-								+ profileFile.getRegdate().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyMMdd")).toString() + File.separator
-								+ profileFile.getSave_name();
-		 */
-		// 임시 경로를 반환
-		//return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
-		return new ResponseDTO<>(HttpStatus.OK.value(), "");
+		return new ResponseDTO<>(HttpStatus.OK.value(), "업데이트 성공!");
 	}
 	// 나의 예매내역
 	@GetMapping("/info/myticketing")

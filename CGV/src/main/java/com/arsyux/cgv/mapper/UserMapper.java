@@ -27,6 +27,9 @@ public interface UserMapper {
 	@Select("SELECT * FROM tb_user WHERE id = #{id}")
 	public UserVO findById(String id);
 	
-	@Update("")
+	// 프로필 업데이트
+	@Update("UPDATE tb_user SET profile=#{profile} AND password = #{password} AND email=#{email} "
+			+ "AND marketing_email=#{marketing_email} AND marketing_sms=#{marketing_sms} AND marketing_phone=#{marketing_phone} "
+			+ "AND agree_promotion=#{agree_promotion} AND agree_stamp=#{agree_stamp} WHERE user_pk = #{user_pk}")
 	public void updateMyCGV(UserVO user);
 }
