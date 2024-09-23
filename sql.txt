@@ -6,6 +6,7 @@ CREATE TABLE tb_user(
 user_pk int(8) auto_increment primary key,
 id varchar(15) unique not null,
 password varchar(100) not null,
+profile varchar(300) default '../images/common/default_profile.gif',
 name varchar(10) not null,
 birth date not null,
 phone varchar(11) unique not null,
@@ -17,9 +18,6 @@ agree_promotion bool default false,
 agree_stamp bool default false,
 credate datetime default NOW(),
 change_password datetime default NOW(),
+grade varchar(10) default 'normal',
 role varchar(10) default 'user');
 
--- 내용 추가
-
-ALTER TABLE cgv.tb_user ADD profile varchar(100) default '../images/common/default_profile.gif' AFTER password;
-ALTER TABLE cgv.tb_user ADD grade varchar(10) default 'normal' AFTER change_password;

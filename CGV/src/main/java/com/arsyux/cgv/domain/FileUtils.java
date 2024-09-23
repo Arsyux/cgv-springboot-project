@@ -3,6 +3,7 @@ package com.arsyux.cgv.domain;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -78,8 +79,6 @@ public class FileUtils {
         String uploadPath = getUploadPath("/temp/" + today) + File.separator + saveName;
         File uploadFile = new File(uploadPath);
         
-        System.out.println(uploadPath);
-        
         try {
             multipartFile.transferTo(uploadFile);
         } catch (IOException e) {
@@ -140,18 +139,18 @@ public class FileUtils {
 	
 	
 	// 임시 폴더에서 프로필 이미지 이동
-	public FileVO moveProfileImgFromTemp(String removeFilePath) {
+	public FileVO moveProfileImgFromTemp(String tempFilePath, String removeFilePath) {
 		
 		// 경로가 백슬래시인 경우 슬래시로 수정해서 데이터 처리
-		if(removeFilePath.contains("\\")) {
-			removeFilePath = removeFilePath.replace("\\", "/");
+		if(tempFilePath.contains("\\")) {
+			tempFilePath = tempFilePath.replace("\\", "/");
 		} else {
 			// 경로 에러. 이미지 초기화
-			removeFilePath = "../images/common/default_profile.gif";
+			tempFilePath = "../images/common/default_profile.gif";
 		}
 
 		// 파일 경로 자르기
-		String cutStr = removeFilePath;
+		String cutStr = tempFilePath;
 		
 		// 파일 이름
 		String fileName = cutStr.substring(cutStr.lastIndexOf("/") + 1);
@@ -199,9 +198,34 @@ public class FileUtils {
 			return file;
 		}
 		
-		// 임피 폴더 청소
+		// 임시 폴더 청소
 		deleteFileTemp();
+		// 파일 경로 자르기
 		
+		String cutStr2 = removeFilePath;
+		
+		// 파일 이름
+		String fileName2 = cutStr2.substring(cutStr2.lastIndexOf("/") + 1);
+		cutStr2 = cutStr2.substring(0, cutStr2.lastIndexOf("/"));
+		
+		// 폴더 이름
+		String folderName2 = cutStr2.substring(cutStr2.lastIndexOf("/") + 1);
+		cutStr2 = cutStr2.substring(0, cutStr2.lastIndexOf("/"));
+		
+        // 기존 이미지 저장 경로
+        String deleteFilePath = FILE_PATH + File.separator + "profile" + File.separator + folderName2 + File.separator + fileName2;
+		
+		File deleteFile = new File(deleteFilePath);
+		
+		// 기존 프로필 파일이 있는지 검사 후
+		if(deleteFile.exists()){
+	        // 기존 프로필 삭제
+			if(deleteFile.delete()) { System.out.println("기존 프로필 삭제 성공!"); }
+			else { System.out.println("기존 프로필 삭제에 실패하였습니다."); }
+		} else {
+			System.out.println("기존 프로필 사진이 없습니다.");
+		}
+        
 		// 파일 객체 return
 		FileVO file = new FileVO();
 		file.setOriginal_name(fileName);

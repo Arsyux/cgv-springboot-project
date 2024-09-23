@@ -184,8 +184,8 @@ function btn_update_click() {
 		let status = response["status"];
 		if(status == 200) {
 			// 정보 수정 성공
-			//location = "/";
-			location ="/info/mycgv";
+			alert('정보 수정에 성공하였습니다.\n다시 로그인해주세요!');
+			location ="/auth/logout";
 		} else {
 			// 정보 수정 실패
 			alert('MY CGV 업데이트중 에러가 발생하였습니다.');

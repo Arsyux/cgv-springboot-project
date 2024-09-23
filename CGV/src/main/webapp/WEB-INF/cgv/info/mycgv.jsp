@@ -209,7 +209,7 @@
 						    	<c:if test="${ user.agree_stamp == 'true' }">
 							        <input type="radio" id="rdo_disagree2" name="agree2">
 							        <label for="rdo_disagree2">비동의</label>
-							        <input type="radio" id="rdo_agree2" name="agree2">
+							        <input type="radio" id="rdo_agree2" name="agree2" checked>
 							        <label for="rdo_agree2">동의</label>
 						    	</c:if>
 						    	<c:if test="${ user.agree_stamp == 'false' }">
