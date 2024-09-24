@@ -208,12 +208,17 @@ public class UserController {
 	public String insertMovie(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
 		
 		UserVO user = principal.getUser();
-
+		
+		// navi에 표시할 현재 페이지
+		model.addAttribute("page", "insertMovie");
+		
+		// 유저 정보
+		model.addAttribute("user", user);
 		
 		if(!user.getRole().equals("admin")) {
-			// admin이 아닐경우
+			// admin이 아닐경우 홈으로 이동
 			System.out.println("잘못된 접근입니다.");
-			return "redirect:index";
+			return "redirect:/index";
 		} else {
 			return "info/insertMovie";
 		}

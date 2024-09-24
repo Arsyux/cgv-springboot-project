@@ -36,7 +36,8 @@
     padding: 10px 20px;
 }
 
-#info_navi > a {
+#info_navi > a.menu,
+#info_navi > a.amenu {
 	display: block;
 	width: 148px;
 	height: 35px;
@@ -52,9 +53,33 @@
     margin-bottom: 10px;
 }
 
-#info_navi > a:hover {
+#info_navi > label {
+	display: block;
+	width: 148px;
+	height: 35px;
+	line-height: 35px;
+	
+	color: #0123B4;
+	font-weight: bold;
+	font-size: 14px;
+	
+	padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    /*
+    background: url(../images/common/arrowDown.png) no-repeat 140px center;
+    */
+}
+
+#info_navi > a.menu:hover {
 	color: #fff;
 	background: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+	transition: 0.2s;
+}
+#info_navi > a.amenu:hover {
+	color: #fff;
+	background: linear-gradient(to left, rgb(17, 150, 193), rgb(1, 35, 180));
 	transition: 0.2s;
 }
 

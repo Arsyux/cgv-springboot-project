@@ -3,7 +3,7 @@
 <%@ include file="../layout/header.jsp"%>
 <title>MY CGV</title>
 <link rel="stylesheet" href="../css/info.css">
-<link rel="stylesheet" href="../css/info/mycgv.css">
+<link rel="stylesheet" href="../css/info/insertMovie.css">
 <script src="../js/mycgv.js"></script>
 
 <%@ include file="../layout/navi.jsp"%>
@@ -11,8 +11,6 @@
 
 <!-- info 배너 -->
 <img id="mycgv_banner" src="../images/common/mycgv_banner.png">
-
-insertMovie
 
 <!-- info 영역 -->
 <div id="info_area">
@@ -23,13 +21,16 @@ insertMovie
 	<!-- main 영역 -->
 	<div id="info_main">
 		<form>
-			<h1>MY CGV</h1>
+			<h1>영화 추가</h1>
 			<!-- 프로필 영역 -->
 			<table>
 				<tr>
-					<th>프로필 사진</th>
+					<th>영화 이미지</th>
 					<td>
+						<!--
 						<img id="profileImg" class="profile" src="${ user.profile }">
+						-->
+						<div style="width: 100px; height: 160px; background: red; display: inline-block; vertical-align: middle"></div>
 						<input id="profileImgUpload" name="profileImgUpload" type="file" onchange="uploadProfileImgTemp()">
 					</td>
 				</tr>
