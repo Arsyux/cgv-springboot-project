@@ -203,4 +203,22 @@ public class UserController {
 		return "info/myticketing";
 	}
 	
+	//
+	@GetMapping("/info/insertMovie")
+	public String insertMovie(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
+		
+		UserVO user = principal.getUser();
+
+		
+		if(!user.getRole().equals("admin")) {
+			// admin이 아닐경우
+			System.out.println("잘못된 접근입니다.");
+			return "redirect:index";
+		} else {
+			return "info/insertMovie";
+		}
+	}
+	
+	
+	
 }

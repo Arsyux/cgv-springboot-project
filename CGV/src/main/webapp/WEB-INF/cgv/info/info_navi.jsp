@@ -5,13 +5,12 @@
 	<a id="mycgv" href="/info/mycgv">MY CGV</a>	
 	<a id="myticketing" href="/info/myticketing">나의 예매내역</a>	
 	<a href="#a">관람권/할인쿠폰 관리</a>	
-	<a href="#a">이벤트 참여내역</a>	
-	<a href="#a">기프트샵</a>	
-	<a href="#a">회원정보</a>	
-	<a href="#a">프로필 관리</a>	
-	<a href="#a">나의 문의내역</a>	
-	<c:if test="${ user.role } == 'admin'">
-		<a href="#a">나의 문의내역2</a>	
+	<a href="#a">이벤트 참여내역</a>
+	<a href="#a">기프트샵</a>
+	<a href="#a">나의 문의내역</a>
+	<c:if test="${ user.role == 'admin'}">
+		<a href="#a">관리자 메뉴</a>
+		<a href="/info/insertMovie">영화 추가</a>	
 	</c:if>
 	
 </div>
