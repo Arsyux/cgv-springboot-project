@@ -169,18 +169,21 @@ public class UserController {
 		// null 검사
 		if(update_User == null || login_User == null) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "유저 데이터에 오류가 있습니다."); }
 		
-		// 임시 폴더에서 저장 폴더로 옮기고, 기존에 등록된 파일 삭제
-		FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile(), login_User.getProfile());
-		
-		LocalDateTime time = file.getRegdate().toLocalDateTime();
-        String str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-        
 		// 데이터 세팅
 		update_User.setUser_pk(login_User.getUser_pk());
 		update_User.setId(login_User.getId());
-		
-		update_User.setProfile("../images/profile/" + str_time + "/" + file.getSave_name());
-		
+
+		// 프로필 데이터에 변화가 있으면
+		if(!login_User.getProfile().equals(update_User.getProfile())) {
+			// 임시 폴더에서 저장 폴더로 옮기고, 기존에 등록된 파일 삭제
+			FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile(), login_User.getProfile());
+			
+			// 데이터 세팅
+			LocalDateTime time = file.getRegdate().toLocalDateTime();
+			String str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+			update_User.setProfile("../images/profile/" + str_time + "/" + file.getSave_name());			
+		}
+        
 		// 데이터 업데이트
 		userService.updateMyCGV(update_User);
 		
