@@ -15,51 +15,36 @@
 	width: 15%;
 	height: 50px;
 }
-#info_main > form > table > tbody > tr:nth-child(1) > th {
-	box-sizing: border-box;
-	height: 120px;
+#info_main > form > table > tbody > tr:nth-child(1) > th,
+#info_main > form > table > tbody > tr:nth-child(2) > th,
+#info_main > form > table > tbody > tr:nth-child(3) > th,
+#info_main > form > table > tbody > tr:nth-child(4) > th {
+	font-size: 14px;	
 }
-
-
-
-
 #info_main > form > table > tbody > tr > td {
 	box-sizing: border-box;
 	padding-left: 20px;
 }
 
-/* 프로필 사진 */
-#info_main > form > table > tbody > tr > td > img.profile {
-	display: inline-block;
-	vertical-align: middle;
-	width: 185px;
-	height: 260px;
-	margin-right: 20px;
-}
-#info_main > form > table > tbody > tr > td > label {
-	font-size: 14px;
-	color: #222;
-}
-
-#info_main > form > table > tbody > tr > td > input[type="password"],
-#info_main > form > table > tbody > tr > td > input[type="email"],
-#info_main > form > table > tbody > tr > td > input[type="url"] {
+#info_main > form > table > tbody > tr > td > input[type="text"] {
     width: 300px;
     height: 30px;
     border: 1px solid #ddd;
     padding-left: 10px;
     box-sizing: border-box;
 }
+#info_main > form > table > tbody > tr > td > textarea {
+	width: 600px;
+	border: 1px solid #ddd;
+	resize: none;	
+}
 
-#info_main > form > table > tbody > tr > td > input[type="email"],
-#info_main > form > table > tbody > tr > td > input[type="url"] {
-    width: 150px;
-}
-#info_main > form > table > tbody > tr > td > select#select_email {
-    width: 150px;
+#info_main > form > table > tbody > tr > td > select {
+    width: 80px;
     height: 30px;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
 }
+
 #info_main > form > table > tbody > tr > td > p.re {
     margin-left: 5px;
     margin-top: 5px;
@@ -67,15 +52,15 @@
     font-size: 14px;
 }
 
-div.btn_update_area {
+div.btn_insert_area {
 	width: 100%;
 	text-align: center;
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
-div.btn_update_area button.btn_update {
-    width: 160px;
+div.btn_insert_area button.btn_insert {
+    width: 120px;
     height: 40px;
     background: #ed3124;
     color: #fff;

@@ -21,3 +21,19 @@ change_password datetime default NOW(),
 grade varchar(10) default 'normal',
 role varchar(10) default 'user');
 
+CREATE TABLE tb_movie(
+movie_pk int(8) auto_increment primary key,
+movieMainImg varchar(300) default '../images/common/default_img.png',
+movieMainVideo varchar(300) not null,
+movieTopImg varchar(300) not null,
+movieTopBackgroundColor varchar(30) default '#000000',
+title varchar(200) not null,
+en_title varchar(200) not null,
+director varchar(100) not null,
+actor varchar(200) not null,
+genre varchar(100) not null,
+info varchar(100) not null,
+detail varchar(2000) not null,
+screening_date datetime not null,
+end_date datetime not null,
+regdate datetime default NOW());

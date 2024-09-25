@@ -10,11 +10,11 @@
 	<a class="menu" href="#a">나의 문의내역</a>
 	<c:if test="${ user.role == 'admin'}">
 		<label>관리자 메뉴 ────</label>
-		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화 추가</a>
-		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화 수정/삭제</a>
-		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화관 추가</a>
-		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화관 수정/삭제</a>
-		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화관 영화 등록</a>
+		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화 등록</a>
+		<a class="amenu" id="insertMovie" href="#a">영화 수정/삭제</a>
+		<a class="amenu" id="insertMovie" href="#a">영화관 등록</a>
+		<a class="amenu" id="insertMovie" href="#a">영화관 수정/삭제</a>
+		<a class="amenu" id="insertMovie" href="#a">영화관 영화 등록하기</a>
 	</c:if>
 	
 </div>

@@ -25,10 +25,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.arsyux.cgv.domain.UserVO;
+import com.arsyux.cgv.dto.MovieDTO;
 import com.arsyux.cgv.dto.ResponseDTO;
 import com.arsyux.cgv.dto.UserDTO;
 import com.arsyux.cgv.dto.UserDTO.InsertUserValidationGroup;
 import com.arsyux.cgv.security.UserDetailsImpl;
+import com.arsyux.cgv.service.MovieService;
 import com.arsyux.cgv.service.UserService;
 import com.arsyux.cgv.domain.FileUtils;
 import com.arsyux.cgv.domain.FileVO;
@@ -37,10 +39,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor 
 @Controller
-public class UserController {
+public class MovieController {
 	
 	@Autowired
-	private UserService userService;
+	private MovieService adminService;
 
 	@Autowired
 	private ModelMapper modelMapper;
@@ -52,89 +54,58 @@ public class UserController {
 	@Value("${FILE_PATH}")
 	private String FILE_PATH;
 	
-	// 로그인 페이지
-	@GetMapping("/auth/login")
-	public String getlogin(@RequestParam(value = "error", required = false)String error,
-						@RequestParam(value = "exception", required = false)String exception,
-						Model model) {
-		// 로그인 실패시 error를 담음
-		model.addAttribute("error", error);
-		model.addAttribute("exception", exception);
-		return "auth/login";
-	}
-	
-	// 회원가입 페이지
-	@GetMapping("/auth/join")
-	public String getJoin() {
-		return "auth/join";
-	}
-	
-	// 회원 가입 기능
-	@PostMapping("/auth/join")
-	// 유효성 검사는 주석 처리함
-	//public @ResponseBody ResponseDTO<?> joinUser(@Validated(InsertUserValidationGroup.class) @RequestBody UserDTO userDTO, BindingResult bindingResult) {
-	public @ResponseBody ResponseDTO<?> joinUser(@RequestBody UserDTO userDTO, BindingResult bindingResult) {
-		
-		// UserDTO를 통해 유효성 검사
-		UserVO user = modelMapper.map(userDTO, UserVO.class);
-		
-		/*
-		// 중복되는 아이디 검색
-		UserVO findUsername = userService.findByUsername(user.getUsername());
-		
-		// 중복되는 아이디가 있을 경우 알림 표시
-		if(findUsername.getUsername() != null) {
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "이미 회원가입 되어있는 아이디입니다.");	
-		}
-		
-		// 중복되는 휴대폰 검색
-		UserVO findUserPhone = userService.findByPhone(user.getPhone());
-		// 중복되는 휴대폰이 있을 경우 알림 표시
-		if(findUserPhone.getPhone() != null) {
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "이미 사용중인 휴대폰 번호입니다.");	
-		}
-
-		// 중복되는 이메일 검색
-		UserVO findUserEmail = userService.findByEmail(user.getEmail());
-		// 중복되는 이메일이 있을 경우 알림 표시
-		if(findUserEmail.getEmail() != null) {
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "이미 사용중인 이메일입니다.");	
-		}
-		*/
-		
-		// 중복 체크 이후 insert
-		userService.joinUser(user);
-		
-		return new ResponseDTO<>(HttpStatus.OK.value(), user.getName() + "님 환영합니다!");		
-	}
-	
-	// MY CGV
-	@GetMapping("/info/mycgv")
-	public String mycgv(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
+	// 영화관 등록 페이지
+	@GetMapping("/info/insertMovie")
+	public String getInsertMovie(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
 		
 		UserVO user = principal.getUser();
 		
-		// 유저 정보 갱신
-		user = userService.findById(user.getId());
-		
 		// navi에 표시할 현재 페이지
-		model.addAttribute("page", "mycgv");
-		
-		// 유저 정보
+		model.addAttribute("page", "insertMovie");
+		// 정보
 		model.addAttribute("user", user);
 		
-		// 이메일 자르기
-		String email_id = user.getEmail().substring(0, user.getEmail().indexOf("@"));
-		model.addAttribute("email_id", email_id);
-		String email_url = user.getEmail().substring(user.getEmail().indexOf("@") + 1, user.getEmail().length());
-		model.addAttribute("email_url", email_url);
-		
-		return "info/mycgv";
+		// admin 체크
+		if(!user.getRole().equals("admin")) {
+			// admin이 아닐경우 홈으로 이동
+			System.out.println("잘못된 접근입니다. 접근 아이디: " + user.getId());
+			return "redirect:/index";
+		} else {
+			return "info/insertMovie";
+		}
 	}
 	
+	// 영화관 등록
+	@PostMapping("/info/insertMovie")
+	public @ResponseBody ResponseDTO<?> postInsertMovie(@RequestBody MovieDTO movieDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
+		
+		UserVO user = principal.getUser();
+		
+		// admin 체크
+		if(!user.getRole().equals("admin")) {
+			// admin이 아닐경우 홈으로 이동
+			System.out.println("잘못된 접근입니다. 접근 아이디: " + user.getId());
+			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "잘못된 접근입니다.");
+		} else {
+			// admin이 일 경우
+			
+			
+			
+			
+			
+			
+			return new ResponseDTO<>(HttpStatus.OK.value(), "영화 등록에 성공하였습니다.");
+		}
+	}
+		
+	
+	
+	
+	
+	
+	
 	// 프로필 사진 임시 업로드
-	@PostMapping("/uploadProfileImgTemp")
-	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp(MultipartFile profileImgUpload, @AuthenticationPrincipal UserDetailsImpl principal) {
+	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp123(MultipartFile profileImgUpload, @AuthenticationPrincipal UserDetailsImpl principal) {
 
 		if(profileImgUpload == null) {
 
@@ -157,8 +128,7 @@ public class UserController {
 	}
 	
 	// 프로필 사진 업로드
-	@PostMapping("/updateMyCGV")
-	public @ResponseBody ResponseDTO<?> updateProfileImg(@RequestBody UserDTO userDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
+	public @ResponseBody ResponseDTO<?> updateProfileImg123(@RequestBody UserDTO userDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
 		
 		// UserDTO를 통해 유효성 검사
 		UserVO update_User = modelMapper.map(userDTO, UserVO.class);
@@ -185,26 +155,9 @@ public class UserController {
 		}
         
 		// 데이터 업데이트
-		userService.updateMyCGV(update_User);
+		//userService.updateMyCGV(update_User);
 		
 		return new ResponseDTO<>(HttpStatus.OK.value(), "업데이트 성공!");
 	}
-	// 나의 예매내역
-	@GetMapping("/info/myticketing")
-	public String myticketing(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
-		
-		UserVO user = principal.getUser();
-		
-		// navi에 표시할 현재 페이지
-		model.addAttribute("page", "myticketing");
-		
-		// 유저 정보
-		model.addAttribute("user", user);
-		
-		//model.addAttribute("url", url);
-		
-		return "info/myticketing";
-	}
-	
 	
 }

@@ -36,7 +36,8 @@ public interface UserMapper {
 			+ "marketing_sms=#{marketing_sms}, "
 			+ "marketing_phone=#{marketing_phone}, "
 			+ "agree_promotion=#{agree_promotion}, "
-			+ "agree_stamp=#{agree_stamp} "
+			+ "agree_stamp=#{agree_stamp}, "
+			+ "change_password=NOW() "
 			+ "WHERE user_pk = #{user_pk}")
 	public void updateMyCGV(UserVO user);
 }

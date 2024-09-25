@@ -57,7 +57,7 @@
 #join_section1 table tr td select#select_email {
     width: 150px;
     height: 30px;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
 }
 #join_section1 table tr td p.re {
     margin-left: 5px;
@@ -67,7 +67,7 @@
 #year, #month, #day {
     width: 80px;
     height: 30px;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
 }
 
 #join_section1 table tr td p.txt1 {
