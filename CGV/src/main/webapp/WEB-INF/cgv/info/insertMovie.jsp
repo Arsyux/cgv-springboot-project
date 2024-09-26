@@ -46,8 +46,8 @@
 				<tr>
 					<th>상단 광고<br>배경색</th>
 					<td>
-						<input id="movieTopBackgroundColor" type="color" required autocomplete='off'>
-						<label id="movieTopBackgroundColorTxt"></label>
+						<input id="movieTopBackgroundColor" type="color" required autocomplete='off' value="#1E0D44">
+						<input id="movieTopBackgroundColorTxt" type="text" required autocomplete='off' value="#1E0D44">
 						<p id="movieTopBackgroundColor_regex" class="re"></p>
 					</td>
 				</tr>

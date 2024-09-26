@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,6 +35,7 @@ import com.arsyux.cgv.service.MovieService;
 import com.arsyux.cgv.service.UserService;
 import com.arsyux.cgv.domain.FileUtils;
 import com.arsyux.cgv.domain.FileVO;
+import com.arsyux.cgv.domain.MovieVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -54,7 +56,7 @@ public class MovieController {
 	@Value("${FILE_PATH}")
 	private String FILE_PATH;
 	
-	// 영화관 등록 페이지
+	// 영화 등록 페이지
 	@GetMapping("/info/insertMovie")
 	public String getInsertMovie(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
 		
@@ -75,11 +77,23 @@ public class MovieController {
 		}
 	}
 	
-	// 영화관 등록
+	// 영화 등록
 	@PostMapping("/info/insertMovie")
-	public @ResponseBody ResponseDTO<?> postInsertMovie(@RequestBody MovieDTO movieDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
+	public @ResponseBody ResponseDTO<?> postInsertMovie(
+			@RequestPart(value="movie") MovieDTO movieDTO, 
+			@RequestPart(value="movieMainImg") MultipartFile file1, 
+			@RequestPart(value="movieMainVideo") MultipartFile file2,
+			@RequestPart(value="movieTopImg") MultipartFile file3, 
+			@AuthenticationPrincipal UserDetailsImpl principal, 
+			BindingResult bindingResult) {
 		
 		UserVO user = principal.getUser();
+		MovieVO movie = modelMapper.map(movieDTO, MovieVO.class);
+		
+		System.out.println(file1.getOriginalFilename().toString());
+		System.out.println(file2.getOriginalFilename().toString());
+		System.out.println(file3.getOriginalFilename().toString());
+		System.out.println(movie.toString());
 		
 		// admin 체크
 		if(!user.getRole().equals("admin")) {
@@ -88,7 +102,6 @@ public class MovieController {
 			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "잘못된 접근입니다.");
 		} else {
 			// admin이 일 경우
-			
 			
 			
 			

@@ -142,17 +142,65 @@ function btn_insert_click() {
 	let screening_date = $("#screening_date_year").val() + $("#screening_date_month").val().padStart(2, "0") + $("#screening_date_day").val().padStart(2, "0");
 	let end_date = $("#end_date_year").val() + $("#end_date_month").val().padStart(2, "0") + $("#end_date_day").val().padStart(2, "0");
 			
-	
+	let formData = new FormData();
+	let movieMainImg = $("#movieMainImg")[0];
+	let file1 = movieMainImg.files[0];
+	let movieMainVideo = $("#movieMainVideo")[0];
+	let file2 = movieMainVideo.files[0];
+	let movieTopImg = $("#movieTopImg")[0];
+	let file3 = movieTopImg.files[0];
+		
 	let movie = {
-		movieMainImg : $("#movieMainImg").val(),
+		movieTopBackgroundColor : $("#movieTopBackgroundColor").val(),
 		title : $("#title").val(),
+		en_title : $("#en_title").val(),
+		director : $("#director").val(),
+		actor : $("#actor").val(),
+		genre : $("#genre").val(),
+		info : $("#info").val(),
+		detail : $("#detail").val(),
 		screening_date : screening_date,
 		end_date : end_date
 	}
+	console.log('메인이미지: ' + movieMainImg);
+	console.log('메인영상: ' + movieMainVideo);
+	console.log('광고이미지: ' + movieTopImg);
+	console.log('광고배경색: ' + movie["movieTopBackgroundColor"]);
 	console.log('제목: ' + movie["title"]);
+	console.log('영어제목: ' + movie["en_title"]);
+	console.log('감독: ' + movie["director"]);
+	console.log('배우: ' + movie["actor"]);
+	console.log('장르: ' + movie["genre"]);
+	console.log('기본정보: ' + movie["info"]);
+	console.log('상세설명: ' + movie["detail"]);
 	console.log('상영날짜: ' + movie["screening_date"]);
 	console.log('종용날짜: ' + movie["end_date"]);
 	
+	formData.append("movieMainImg", file1);
+	formData.append("movieMainVideo", file2);
+	formData.append("movieTopImg", file3);
+	formData.append("movie", new Blob([JSON.stringify(movie)], {type: "application/json"}));
+	
+	$.ajax({
+			type: "POST",
+			url: "/info/insertMovie",
+			data: formData,
+			contentType: false,
+	        processData: false
+		}).done(function(response) {
+			let status = response["status"];
+			if(status == 200) {
+				// 영화등록 성공
+				let message = response["data"];
+				alert(message);
+				location = "/info/insertMovie";	
+			} else {
+			// 영화등록 실패
+				alert('영화등록 실패!');
+			}
+		}).fail(function(error) {
+			alert("에러 발생 : " + error);
+		});
 	/*
 	$.ajax({
 		type: "POST",
@@ -173,5 +221,5 @@ function btn_insert_click() {
 	}).fail(function(error) {
 		alert("에러 발생 : " + error);
 	});
-	*/	
+	*/
 }
