@@ -2,6 +2,7 @@ CREATE DATABASE cgv;
 
 USE cgv;
 
+-- 유저
 CREATE TABLE tb_user(
 user_pk int(8) auto_increment primary key,
 id varchar(15) unique not null,
@@ -21,6 +22,7 @@ change_password datetime default NOW(),
 grade varchar(10) default 'normal',
 role varchar(10) default 'user');
 
+-- 영화
 CREATE TABLE tb_movie(
 movie_pk int(8) auto_increment primary key,
 movieMainImg varchar(300) default '../images/common/default_img.png',
@@ -28,13 +30,26 @@ movieTopImg varchar(300) not null,
 movieTopBackgroundColor varchar(30) default '#000000',
 movieMainVideo varchar(300) not null,
 title varchar(200) not null,
-en_title varchar(200) not null,
-director varchar(100) not null,
-actor varchar(200) not null,
-genre varchar(100) not null,
-info varchar(100) not null,
-detail varchar(2000) not null,
+en_title varchar(200) default '',
+director varchar(100) default '',
+actor varchar(200) default '',
+genre varchar(100) default '',
+info varchar(100) default '',
+detail varchar(2000) default '',
 ticketCount int(8) default 0,
 screening_date date not null,
 end_date date not null,
 regdate datetime default NOW());
+
+-- 영화관
+CREATE TABLE tb_theater(
+theater_pk int(8) auto_increment primary key,
+name varchar(50) not null,
+location varchar(50) not null);
+
+-- 영화관에 등록된 영화 테이블
+CREATE TABLE tb_movielist(
+userid INT NOT NULL COMMENT '유저 번호 (FK)',
+FOREIGN KEY(userid) REFERENCES tb_user(userid) ON DELETE CASCADE);
+
+location varchar(50) not null);
