@@ -32,12 +32,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th>영화 메인<br>영상</th>
-					<td>
-						<input id="movieMainVideo" name="movieMainVideo" type="file">
-					</td>
-				</tr>
-				<tr>
 					<th>상단 광고<br>이미지</th>
 					<td>
 						<input id="movieTopImg" name="movieTopImg" type="file">
@@ -49,6 +43,12 @@
 						<input id="movieTopBackgroundColor" type="color" required autocomplete='off' value="#1E0D44">
 						<input id="movieTopBackgroundColorTxt" type="text" required autocomplete='off' value="#1E0D44">
 						<p id="movieTopBackgroundColor_regex" class="re"></p>
+					</td>
+				</tr>
+				<tr>
+					<th>영화 메인<br>영상</th>
+					<td>
+						<input id="movieMainVideo" name="movieMainVideo" type="file">
 					</td>
 				</tr>
 				<tr>

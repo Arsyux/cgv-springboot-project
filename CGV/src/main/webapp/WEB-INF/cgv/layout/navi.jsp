@@ -23,7 +23,7 @@
             <a href="/index"><img id="logoImg" src="../images/common/cgv_logo.png"></a>
             <ul class="menu">
                 <li>
-                    <a href="/movies">영화</a>
+                    <a href="/movie/movieChart">영화</a>
                     <ul class="sub">
                         <li><a href="#a">무비차트</a></li>
                         <li><a href="#a">아트하우스</a></li>

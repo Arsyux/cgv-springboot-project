@@ -13,9 +13,9 @@ public class MovieVO {
 	
 	public int movie_pk; // 영화 PK
 	public String movieMainImg; // 영화 메인 이미지 경로
-	public String movieMainVideo; // 영화 메인 영상 경로
 	public String movieTopImg; // 영화 상단 이미지 경로
 	public String movieTopBackgroundColor; // 영화 상단 이미지 배경색
+	public String movieMainVideo; // 영화 메인 영상 경로
 	public String title; // 영화 제목
 	public String en_title; // 영화 영어 제목
 	public String director; // 감독

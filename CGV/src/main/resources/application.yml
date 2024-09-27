@@ -47,3 +47,5 @@ spring:
   #    password: ${ADMIN_PASSWORD}
   
 FILE_PATH: ${FILE_PATH}
+
+FILE_PATH_VIDEO : ${FILE_PATH_VIDEO}

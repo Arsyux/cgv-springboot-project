@@ -1,26 +1,19 @@
 package com.arsyux.cgv.controller;
 
-import java.io.File;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,11 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.arsyux.cgv.domain.UserVO;
 import com.arsyux.cgv.dto.MovieDTO;
 import com.arsyux.cgv.dto.ResponseDTO;
-import com.arsyux.cgv.dto.UserDTO;
-import com.arsyux.cgv.dto.UserDTO.InsertUserValidationGroup;
 import com.arsyux.cgv.security.UserDetailsImpl;
 import com.arsyux.cgv.service.MovieService;
-import com.arsyux.cgv.service.UserService;
 import com.arsyux.cgv.domain.FileUtils;
 import com.arsyux.cgv.domain.FileVO;
 import com.arsyux.cgv.domain.MovieVO;
@@ -44,7 +34,7 @@ import lombok.RequiredArgsConstructor;
 public class MovieController {
 	
 	@Autowired
-	private MovieService adminService;
+	private MovieService movieService;
 
 	@Autowired
 	private ModelMapper modelMapper;
@@ -90,10 +80,10 @@ public class MovieController {
 		UserVO user = principal.getUser();
 		MovieVO movie = modelMapper.map(movieDTO, MovieVO.class);
 		
-		System.out.println(file1.getOriginalFilename().toString());
-		System.out.println(file2.getOriginalFilename().toString());
-		System.out.println(file3.getOriginalFilename().toString());
-		System.out.println(movie.toString());
+		//System.out.println(file1.getOriginalFilename().toString());
+		//System.out.println(file2.getOriginalFilename().toString());
+		//System.out.println(file3.getOriginalFilename().toString());
+		//System.out.println(movie.toString());
 		
 		// admin 체크
 		if(!user.getRole().equals("admin")) {
@@ -103,74 +93,45 @@ public class MovieController {
 		} else {
 			// admin이 일 경우
 			
+			// 이미지, 영상 저장
+			// 메인 이미지
+			FileVO movieMainImg = fileUtils.uploadFileMovieMain(file1);
+			// 상단 광고 이미지
+			FileVO movieMainTop = fileUtils.uploadFileMovieTop(file2);
+			// 영화 광고 영상
+			FileVO movieMainVideo =fileUtils.uploadFileMovieVideo(file3);
 			
+			// movie객체에 저장 경로 설정
+			// 메인 이미지
+			LocalDateTime time = movieMainImg.getRegdate().toLocalDateTime();
+			String str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+			movie.setMovieMainImg("../images/movieMain/" + str_time + "/" + movieMainImg.getSave_name());
 			
+			// 상단 광고 이미지
+			time = movieMainTop.getRegdate().toLocalDateTime();
+			str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+			movie.setMovieTopImg("../images/movieTop/" + str_time + "/" + movieMainTop.getSave_name());
+
+			// 영화 광고 영상
+			time = movieMainVideo.getRegdate().toLocalDateTime();
+			str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+			movie.setMovieMainVideo("../videos/" + str_time + "/" + movieMainVideo.getSave_name());
 			
+			// DB 삽입
+			movieService.insertMovie(movie);
 			
 			return new ResponseDTO<>(HttpStatus.OK.value(), "영화 등록에 성공하였습니다.");
 		}
 	}
-		
 	
-	
-	
-	
-	
-	
-	// 프로필 사진 임시 업로드
-	public @ResponseBody ResponseDTO<?> uploadProfileImgTemp123(MultipartFile profileImgUpload, @AuthenticationPrincipal UserDetailsImpl principal) {
+	// 무비 차트
 
-		if(profileImgUpload == null) {
-
-			UserVO user = principal.getUser();
-			System.out.println("[" + new Date() + "] " + user.getId() + " 프로필 이미지 null 에러");
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "프로필 이미지 등록중 에러");
-		}
-		
-		FileVO profileFile = fileUtils.uploadFileTemp(profileImgUpload);
-		
-        // 이미지 경로
-		String profileImgPath = ".." + File.separator
-								+ "images" + File.separator 
-								+ "temp" + File.separator
-								+ profileFile.getRegdate().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyMMdd")).toString() + File.separator
-								+ profileFile.getSave_name();
-		
-		// 임시 경로를 반환
-		return new ResponseDTO<>(HttpStatus.OK.value(), profileImgPath);
-	}
-	
-	// 프로필 사진 업로드
-	public @ResponseBody ResponseDTO<?> updateProfileImg123(@RequestBody UserDTO userDTO, @AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
-		
-		// UserDTO를 통해 유효성 검사
-		UserVO update_User = modelMapper.map(userDTO, UserVO.class);
-		
-		// 로그인 중인 유저 정보
-		UserVO login_User = principal.getUser();
-		
-		// null 검사
-		if(update_User == null || login_User == null) { return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "유저 데이터에 오류가 있습니다."); }
-		
-		// 데이터 세팅
-		update_User.setUser_pk(login_User.getUser_pk());
-		update_User.setId(login_User.getId());
-
-		// 프로필 데이터에 변화가 있으면
-		if(!login_User.getProfile().equals(update_User.getProfile())) {
-			// 임시 폴더에서 저장 폴더로 옮기고, 기존에 등록된 파일 삭제
-			FileVO file = fileUtils.moveProfileImgFromTemp(update_User.getProfile(), login_User.getProfile());
-			
-			// 데이터 세팅
-			LocalDateTime time = file.getRegdate().toLocalDateTime();
-			String str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-			update_User.setProfile("../images/profile/" + str_time + "/" + file.getSave_name());			
-		}
-        
-		// 데이터 업데이트
-		//userService.updateMyCGV(update_User);
-		
-		return new ResponseDTO<>(HttpStatus.OK.value(), "업데이트 성공!");
+	// 무비차트
+	@GetMapping("/movie/movieChart")
+	public String getMovieChart(Model model) {
+		List<MovieVO> movies = movieService.getMovieChart();
+		model.addAttribute("movies", movies);
+		return "movie/movieChart";
 	}
 	
 }

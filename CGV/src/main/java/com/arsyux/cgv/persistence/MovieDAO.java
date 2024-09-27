@@ -1,5 +1,7 @@
 package com.arsyux.cgv.persistence;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,5 +18,9 @@ public class MovieDAO {
 	public void insertMovie(MovieVO movie) {
 		mybatis.insert("insertMovie", movie);
 	}
-
+	
+	// 무비 차트 조회
+	public List<MovieVO> getMovieChart() {
+		return mybatis.selectList("getMovieChart");
+	}
 }

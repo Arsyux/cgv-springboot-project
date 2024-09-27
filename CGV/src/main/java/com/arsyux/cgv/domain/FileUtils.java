@@ -29,6 +29,10 @@ public class FileUtils {
 	@Value("${FILE_PATH}")
 	private String FILE_PATH;
 	
+	// 영상 경로
+	@Value("${FILE_PATH_VIDEO}")
+	private String FILE_PATH_VIDEO;
+	
 	// 다중파일 업로드
 	public List<FileVO> uploadFiles(List<MultipartFile> multipartFiles) {
 		
@@ -49,6 +53,75 @@ public class FileUtils {
         LocalDateTime today_now = LocalDateTime.now();
         String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
         String uploadPath = getUploadPath(today) + File.separator + saveName;
+        File uploadFile = new File(uploadPath);
+        
+        try {
+            multipartFile.transferTo(uploadFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        
+        FileVO file = new FileVO();
+        file.setOriginal_name(multipartFile.getOriginalFilename());
+        file.setSave_name(saveName);
+        file.setRegdate(Timestamp.valueOf(today_now));
+        
+        return file;
+	}
+	// 메인 영화 이미지 저장
+	public FileVO uploadFileMovieMain(MultipartFile multipartFile) {
+		if (multipartFile.isEmpty()) { return null; }
+		
+        String saveName = generateSaveFilename(multipartFile.getOriginalFilename());
+        LocalDateTime today_now = LocalDateTime.now();
+        String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+        String uploadPath = getUploadPath("/movieMain/" + today) + File.separator + saveName;
+        File uploadFile = new File(uploadPath);
+        
+        try {
+            multipartFile.transferTo(uploadFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        
+        FileVO file = new FileVO();
+        file.setOriginal_name(multipartFile.getOriginalFilename());
+        file.setSave_name(saveName);
+        file.setRegdate(Timestamp.valueOf(today_now));
+        
+        return file;
+	}
+	// 상단 영화 이미지 저장
+	public FileVO uploadFileMovieTop(MultipartFile multipartFile) {
+		if (multipartFile.isEmpty()) { return null; }
+		
+        String saveName = generateSaveFilename(multipartFile.getOriginalFilename());
+        LocalDateTime today_now = LocalDateTime.now();
+        String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+        String uploadPath = getUploadPath("/movieTop/" + today) + File.separator + saveName;
+        File uploadFile = new File(uploadPath);
+        
+        try {
+            multipartFile.transferTo(uploadFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        
+        FileVO file = new FileVO();
+        file.setOriginal_name(multipartFile.getOriginalFilename());
+        file.setSave_name(saveName);
+        file.setRegdate(Timestamp.valueOf(today_now));
+        
+        return file;
+	}
+	// 메인 영화 영상 저장
+	public FileVO uploadFileMovieVideo(MultipartFile multipartFile) {
+		if (multipartFile.isEmpty()) { return null; }
+		
+        String saveName = generateSaveFilename(multipartFile.getOriginalFilename());
+        LocalDateTime today_now = LocalDateTime.now();
+        String today = today_now.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+        String uploadPath = getUploadPathVideo(today) + File.separator + saveName;
         File uploadFile = new File(uploadPath);
         
         try {
@@ -261,9 +334,13 @@ public class FileUtils {
 		return FILE_PATH;
 	}
 	
-	// 업로드 경로 반환
+	// 이미지 업로드 경로 반환
 	private String getUploadPath(final String addPath) {
         return makeDirectories(FILE_PATH + File.separator + addPath);
+    }
+	// 영상 업로드 경로 반환
+	private String getUploadPathVideo(final String addPath) {
+        return makeDirectories(FILE_PATH_VIDEO + File.separator + addPath);
     }
 	
 	// 업로드 폴더 생성

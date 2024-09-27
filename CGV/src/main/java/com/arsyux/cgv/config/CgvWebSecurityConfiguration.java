@@ -45,7 +45,7 @@ public class CgvWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                 		"/webjars/**", "/js/**", "/images/**", "/videos/**",
                         "/css/**", "/font/**", "/summernote/**", "/bxslider/**", "/message/**", "/files/**",
-                        "/", "/index", "/auth/**",  "/movies", "/special/**", "/ticket/**"
+                        "/", "/index", "/auth/**",  "/movies", "/special/**", "/ticket/**", "/movie/**"
                         ).permitAll()
                 .anyRequest().authenticated())
                 .formLogin(login -> login
