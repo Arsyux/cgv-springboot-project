@@ -4,6 +4,28 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### videos ###
+**/src/main/resources/static/videos/**/**
+
+### movieMain ###
+**/src/main/resources/static/images/movieMain/**/**.jpg
+**/src/main/resources/static/images/movieMain/**/**.jpeg
+**/src/main/resources/static/images/movieMain/**/**.png
+
+### movieTop ###
+**/src/main/resources/static/images/movieTop/**/**.jpg
+**/src/main/resources/static/images/movieTop/**/**.jpeg
+**/src/main/resources/static/images/movieTop/**/**.png
+
+### profile ###
+**/src/main/resources/static/images/profile/**/**.jpg
+**/src/main/resources/static/images/profile/**/**.jpeg
+**/src/main/resources/static/images/profile/**/**.png
+
+### temp ###
+**/src/main/resources/static/images/temp/**/**
+
+
 ### STS ###
 .apt_generated
 .classpath

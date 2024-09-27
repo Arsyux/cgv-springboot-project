@@ -26,8 +26,8 @@ public class MovieDTO {
 	public String genre; // 장르
 	public String info; // 기본 정보
 	public String detail; // 영화 줄거리
-	public Date screening_date; // 상영 날짜
-	public Date end_date; // 종영 날짜
+	public String screening_date; // 상영 날짜
+	public String end_date; // 종영 날짜
 	public Date regdate; // 데이터 삽입 날짜
 	
 }

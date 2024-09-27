@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="../layout/header.jsp"%>
 <title>MY CGV</title>
 <link rel="stylesheet" href="../css/movies/movieChart.css">
-<script src="../js/mycgv.js"></script>
+<script src="../js/movieChart.js"></script>
 
 <%@ include file="../layout/navi.jsp"%>
 <!-- 공통 상단영역 끝 -->
@@ -24,23 +25,24 @@
             </select>
             <button type="button" class="btn_nowshow">GO</button>
         </div>
-
-        <div class="movies">
-            <ul class="movieBox">
-                <li class="movieNo">No.1</li>
-                <li class="movieImg"><img src="../images/에일리언.jpg"></li>
-                <li class="movieTit">에일리언- 로물루스</li>
-                <li class="moviePercent">
-                    <span class="percent1">예매율</span>
-                    <span class="percent2">7.4%</span>
-                    <span class="line"></span>
-                    <img src="images/eggGoldenegggreat.png">
-                    <span class="percent3">94%</span>
-                </li>
-                <li class="movieOpen">20204.08.14 개봉</li>
-                <li class="moviebtn"><button class="btn_ticketing">예매하기</button></li>
-            </ul>
-
+        
+       	<div class="movies">
+	        <!-- 영화 리스트 출력 -->
+	        <c:forEach var="movie" items="${ movies }" varStatus="status">
+	            <ul class="movieBox" onclick="movieBox_Click(${movie.movie_pk})">
+	                <li class="movieNo">
+	                		No.${ status.index +1 }
+                	</li>
+	                <li class="movieImg">
+		                	<img src="${ movie.movieMainImg }">
+	                </li>
+	                <li class="movieTit">
+		                	${ movie.title }
+                	</li>
+	                <li class="movieOpen">${ movie.screening_date } 개봉</li>
+	                <li class="moviebtn"><button class="btn_ticketing">예매하기</button></li>
+	            </ul>
+	        </c:forEach>
         </div>
 
 

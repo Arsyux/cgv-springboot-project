@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	let now_yyyy = new Date().getFullYear();
+	let now_yyyy = new Date().getFullYear() + 1;
 	let opt1;
 	let opt2;
 
@@ -145,17 +145,9 @@ function btn_insert_click() {
 		return;
 	}
 	
-	$("#screening_date_year").val('2024');
-	$("#screening_date_month").val('9');
-	$("#screening_date_day").val('25');
-
-	$("#end_date_year").val('2024');
-	$("#end_date_month").val('10');
-	$("#end_date_day").val('31');
-	
 	let screening_date = $("#screening_date_year").val() + $("#screening_date_month").val().padStart(2, "0") + $("#screening_date_day").val().padStart(2, "0");
 	let end_date = $("#end_date_year").val() + $("#end_date_month").val().padStart(2, "0") + $("#end_date_day").val().padStart(2, "0");
-			
+	
 	let formData = new FormData();
 	let movieMainImg = $("#movieMainImg")[0];
 	let file1 = movieMainImg.files[0];
@@ -165,7 +157,7 @@ function btn_insert_click() {
 	let file3 = movieMainVideo.files[0];
 		
 	let movie = {
-		movieTopBackgroundColor : $("#movieTopBackgroundColor").val(),
+		movieTopBackgroundColor : $("#movieTopBackgroundColorTxt").val(),
 		title : $("#title").val(),
 		en_title : $("#en_title").val(),
 		director : $("#director").val(),

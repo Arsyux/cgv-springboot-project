@@ -35,6 +35,6 @@ genre varchar(100) not null,
 info varchar(100) not null,
 detail varchar(2000) not null,
 ticketCount int(8) default 0,
-screening_date datetime not null,
-end_date datetime not null,
+screening_date date not null,
+end_date date not null,
 regdate datetime default NOW());

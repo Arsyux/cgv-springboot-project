@@ -103,24 +103,34 @@
 
 #moviechart_section ul.movieBox {
     display: inline-block;
+    vertical-align: middle;
     width: 20%;
-    height: 425px;
+    height: 380px;
     margin-right: 50px;
+    cursor: pointer;
+    margin-bottom: 50px;
 }
 #moviechart_section ul.movieBox:nth-child(4n) {
     margin-right: 0px;
 }
 
 #moviechart_section ul.movieBox li.movieNo {
-    background: #fb4357;
+    background: #333333;
     width: 100%;
     height: 28px;
     font-size: 19px;
     letter-spacing: -1px;
-    color: #fff;
     font-weight: bold;
     text-align: center;
+    color: #fff;
 }
+#moviechart_section ul.movieBox:nth-child(1) li.movieNo,
+#moviechart_section ul.movieBox:nth-child(2) li.movieNo,
+#moviechart_section ul.movieBox:nth-child(3) li.movieNo,
+#moviechart_section ul.movieBox:nth-child(4) li.movieNo {
+    background: #fb4357;
+}
+
 
 #moviechart_section ul.movieBox li.movieImg {
     display: flex;
@@ -136,61 +146,19 @@
 }
 
 #moviechart_section ul.movieBox li.movieTit {
+	display: block;
     width: 100%;
     height: 26px;
     line-height: 26px;
     font-weight: bold;
 
+	color: #222;	
     font-size: 18px;
     letter-spacing: -1px;
 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-
-#moviechart_section ul.movieBox li.moviePercent {
-    width: 100%;
-    height: 24px;
-
-    color: #666;
-    letter-spacing: -1px;
-}
-
-#moviechart_section ul.movieBox li.moviePercent span.percent1 {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 12px;
-}
-
-#moviechart_section ul.movieBox li.moviePercent span.percent2 {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 18px;
-    margin-left: 5px;
-}
-
-#moviechart_section ul.movieBox li.moviePercent span.percent3 {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 18px;
-}
-#moviechart_section ul.movieBox li.moviePercent span.line {
-    display: inline-block;
-    vertical-align: middle;
-    width: 1px;
-    height: 12px;
-    background: #ddd;
-    margin: 0px 5px;
-}
-
-#moviechart_section ul.movieBox li.moviePercent > img {
-    display: inline-block;
-    vertical-align: middle;
-    height: 24px;
-    margin: 0;
-    padding: 0;
 }
 
 #moviechart_section ul.movieBox li.movieOpen {
@@ -210,9 +178,15 @@
 
 #moviechart_section ul.movieBox li.moviebtn button.btn_ticketing {
     width: 100px;
-    height: 25px;
-    background: #fb4357;
+    height: 35px;
+    background: #333333;
     color: #fff;
     border: 0;
     border-radius: 5px;
+}
+#moviechart_section ul.movieBox:nth-child(1) li.moviebtn button.btn_ticketing,
+#moviechart_section ul.movieBox:nth-child(2) li.moviebtn button.btn_ticketing,
+#moviechart_section ul.movieBox:nth-child(3) li.moviebtn button.btn_ticketing,
+#moviechart_section ul.movieBox:nth-child(4) li.moviebtn button.btn_ticketing {
+    background: #fb4357;
 }

@@ -25,13 +25,13 @@
                 <li>
                     <a href="/movie/movieChart">영화</a>
                     <ul class="sub">
-                        <li><a href="#a">무비차트</a></li>
+                        <li><a href="/movie/movieChart">무비차트</a></li>
                         <li><a href="#a">아트하우스</a></li>
                         <li><a href="#a">ICECON</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#a">극장</a>
+                    <a href="/special">극장</a>
                     <ul class="sub">
                         <li><a href="#a">CGV 극장</a></li>
                         <li><a href="/special">특별관</a></li>

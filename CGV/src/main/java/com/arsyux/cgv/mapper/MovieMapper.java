@@ -25,7 +25,11 @@ public interface MovieMapper {
 	
 	
 	// 무비 차트 조회
-	@Select("SELECT * FROM tb_movie ORDER BY ticketCount desc, movie_pk desc LIMIT 100")
+	@Select("SELECT * FROM tb_movie ORDER BY ticketCount desc, movie_pk LIMIT 100")
 	public List<MovieVO> getMovieChart();
+	
+
+	@Select("SELECT * FROM tb_movie WHERE movie_pk=#{movie_pk}")
+	public MovieVO getMovieDetail(int movie_pk);
 	
 }

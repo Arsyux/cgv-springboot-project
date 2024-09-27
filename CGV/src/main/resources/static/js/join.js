@@ -285,6 +285,8 @@ function btn_join_click() {
 	let agree_promotion = $('#rdo_agree1')[0].checked;
 	let agree_stamp = $('#rdo_agree2')[0].checked;
 	
+	alert(birth);
+	
 	let user = {
 		id : $("#id").val(),
 		password : $("#pw").val(),

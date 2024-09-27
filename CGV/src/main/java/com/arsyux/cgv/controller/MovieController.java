@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -80,11 +81,6 @@ public class MovieController {
 		UserVO user = principal.getUser();
 		MovieVO movie = modelMapper.map(movieDTO, MovieVO.class);
 		
-		//System.out.println(file1.getOriginalFilename().toString());
-		//System.out.println(file2.getOriginalFilename().toString());
-		//System.out.println(file3.getOriginalFilename().toString());
-		//System.out.println(movie.toString());
-		
 		// admin 체크
 		if(!user.getRole().equals("admin")) {
 			// admin이 아닐경우 홈으로 이동
@@ -124,14 +120,32 @@ public class MovieController {
 		}
 	}
 	
-	// 무비 차트
-
 	// 무비차트
 	@GetMapping("/movie/movieChart")
 	public String getMovieChart(Model model) {
 		List<MovieVO> movies = movieService.getMovieChart();
-		model.addAttribute("movies", movies);
+		if(movies.size() != 0) {
+			model.addAttribute("movies", movies);
+		}
 		return "movie/movieChart";
+	}
+	
+	// 영화 상세
+	@GetMapping("/movie/movieDetail")
+	public String movieDetail(Model model, @RequestParam String movie_pk) {
+		
+		int pk = 1;
+		
+		try { pk = Integer.parseInt(movie_pk); }
+		catch (Exception e) { return "redirect:/index"; }
+		
+		MovieVO movie = movieService.getMovieDetail(pk);
+		if(movie == null) {
+			return "redirect:/index";
+		}
+		model.addAttribute("movie", movie);
+		
+		return "movie/movieDetail";
 	}
 	
 }

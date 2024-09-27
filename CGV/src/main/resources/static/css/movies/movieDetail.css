@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+#movie_detail {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-family: 'Noto Sans KR';
+}
+
+#movie_detail div.img_area {
+	position: relative;
+	
+	display: inline-block;
+	vertical-align: middle;
+	
+	width: 200px;
+	height: 260px;
+}
+
+#movie_detail div.img_area div.img_cut {
+	position: absolute;
+	top: 0;
+	left: 7.5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 185px;
+	height: 260px;
+	overflow: hidden;
+}
+
+#movie_detail div.img_area img {
+	width: 100%;
+}
+
+#movie_detail div.info_area {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 780px;
+	height: 260px;
+}
+
+#movie_detail div.info_area h1 {
+	color: #1a1919;
+	font-size: 25px;
+	font-weight: normal;
+}
+
+#movie_detail div.info_area h1 span.title {
+	display: inline-block;
+	vertical-align: middle;
+}
+#movie_detail div.info_area h1 span.screen {
+	display: inline-block;
+	vertical-align: middle;
+	
+	color: #3e82a4;
+	border: 2px solid #3e82a4;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 5px;
+	
+	margin-left: 10px;
+}
+
+#movie_detail div.info_area h2 {
+	color: #666666;
+	font-size: 12px;
+	font-weight: normal;
+	margin-top: 5px;
+}
+
+#movie_detail div.info_area p.line {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #ddd;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#movie_detail div.info_area h3 {
+	color: #333;
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 3px;
+}
+
+#movie_detail div.info_area h3 span {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#movie_detail div.info_area h3 span:nth-child(1n) {
+	margin-left: 0px;
+}
+
+#movie_detail div.info_area a.ticketing {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	display: block;
+	width: 90px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	
+	border-radius: 5px;
+	background: #fb4357;
+	color: #fff;
+	margin-top: 60px;
+}
+
+
+#movie_detail textarea {
+	width: 800px;
+	margin-left: 7.5px;
+	border: 0;
+	margin-top: 100px;
+	resize: none;
+}
+#movie_detail textarea:focus {
+	outline: none;
+}
+#movie_detail div.trailer {
+	margin-bottom: 50px;
+}
+
+#movie_detail div.trailer h4 {
+	display: block;
+	background: #f6f6f6;
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	color: #333;
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+#movie_detail div.trailer video {
+	width: 260px;
+	cursor: pointer;
+}

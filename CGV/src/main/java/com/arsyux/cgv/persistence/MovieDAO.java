@@ -23,4 +23,10 @@ public class MovieDAO {
 	public List<MovieVO> getMovieChart() {
 		return mybatis.selectList("getMovieChart");
 	}
+	
+	// 무비 상세 조회
+	public MovieVO getMovieDetail(int movie_pk) {
+		return mybatis.selectOne("getMovieDetail", movie_pk);
+	}
+	
 }

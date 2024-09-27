@@ -29,4 +29,10 @@ public class MovieService {
 		return movieDAO.getMovieChart();
 	}
 	
+	// 무비 상세 조회
+	@Transactional
+	public MovieVO getMovieDetail(int movie_pk) {
+		return movieDAO.getMovieDetail(movie_pk);
+	}
+	
 }
