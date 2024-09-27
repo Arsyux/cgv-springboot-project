@@ -1,22 +1,18 @@
 package com.arsyux.cgv.controller;
 
 import java.io.File;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.arsyux.cgv.domain.UserVO;
 import com.arsyux.cgv.dto.ResponseDTO;
 import com.arsyux.cgv.dto.UserDTO;
-import com.arsyux.cgv.dto.UserDTO.InsertUserValidationGroup;
 import com.arsyux.cgv.security.UserDetailsImpl;
 import com.arsyux.cgv.service.UserService;
 import com.arsyux.cgv.domain.FileUtils;

@@ -1,14 +1,11 @@
 package com.arsyux.cgv.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.arsyux.cgv.domain.MovieVO;
 
 import lombok.RequiredArgsConstructor;
 

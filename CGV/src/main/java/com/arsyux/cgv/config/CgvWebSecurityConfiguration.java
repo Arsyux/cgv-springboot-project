@@ -27,7 +27,7 @@ public class CgvWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	// 스프링 컨테이너가 PasswordEncoder를 생성할 수 있도록 @Bean 어노테이션 등록
 	@Bean
-	public PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 		
