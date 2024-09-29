@@ -26,7 +26,7 @@
 	
     <form action="/auth/securitylogin" method="post">
     	<input name="username" type="text" value="a123123">
-        <input name="password" type="password" value="a123123!">
+        <input name="password" type="password">
         <button class="btn_login"><span>로그인</span></button>         
 	</form>
     
