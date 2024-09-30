@@ -68,6 +68,27 @@ public class MovieController {
 		}
 	}
 	
+	// 영화 등록 페이지
+	@GetMapping("/info/insertTheater")
+	public String getInsertTheater(Model model, @AuthenticationPrincipal UserDetailsImpl principal) {
+		
+		UserVO user = principal.getUser();
+		
+		// navi에 표시할 현재 페이지
+		model.addAttribute("page", "insertTheater");
+		// 정보
+		model.addAttribute("user", user);
+		
+		// admin 체크
+		if(!user.getRole().equals("admin")) {
+			// admin이 아닐경우 홈으로 이동
+			System.out.println("잘못된 접근입니다. 접근 아이디: " + user.getId());
+			return "redirect:/index";
+		} else {
+			return "info/insertTheater";
+		}
+	}
+	
 	// 영화 등록
 	@PostMapping("/info/insertMovie")
 	public @ResponseBody ResponseDTO<?> postInsertMovie(
