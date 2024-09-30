@@ -85,6 +85,8 @@ public class MovieController {
 			System.out.println("잘못된 접근입니다. 접근 아이디: " + user.getId());
 			return "redirect:/index";
 		} else {
+			List<MovieVO> movielist = movieService.getMovieChart();
+			model.addAttribute("movielist", movielist);
 			return "info/insertTheater";
 		}
 	}

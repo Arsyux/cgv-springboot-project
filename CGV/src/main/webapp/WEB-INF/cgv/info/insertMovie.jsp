@@ -22,7 +22,7 @@
 	<!-- main 영역 -->
 	<div id="info_main">
 		<form>
-			<h1>영화 등록</h1>
+			<h1>영화 추가</h1>
 			<!-- 프로필 영역 -->
 			<table>
 				<tr>

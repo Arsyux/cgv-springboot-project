@@ -44,12 +44,11 @@ regdate datetime default NOW());
 -- 영화관
 CREATE TABLE tb_theater(
 theater_pk int(8) auto_increment primary key,
-name varchar(50) not null,
-location varchar(50) not null);
-
--- 영화관에 등록된 영화 테이블
-CREATE TABLE tb_movielist(
-userid INT NOT NULL COMMENT '유저 번호 (FK)',
-FOREIGN KEY(userid) REFERENCES tb_user(userid) ON DELETE CASCADE);
-
-location varchar(50) not null);
+name varchar(50) unique not null,
+location varchar(50) not null,
+locationDetail varchar(200) not null,
+movie_pk int(8) not null,
+movieDateTime datetime default NOW(),
+seats int(8) default 0,
+regdate datetime default NOW(),
+FOREIGN KEY(movie_pk) REFERENCES tb_movie(movie_pk) ON DELETE CASCADE);
