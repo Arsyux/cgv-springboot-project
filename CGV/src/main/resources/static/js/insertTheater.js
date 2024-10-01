@@ -88,43 +88,40 @@ function select_month() {
 
 function btn_insert_click() {
 	
-	alert('Hi');
+	let datetime = $("#year").val() + "-" + $("#month").val().padStart(2, "0") + "-" + $("#day").val().padStart(2, "0") + " "
+					+ $("#hour").val().padStart(2, "0") + ":" + $("#min").val().padStart(2, "0");
 	
-	let datetime = $("#year").val() + $("#month").val().padStart(2, "0") + $("#day").val().padStart(2, "0")
-					+ $("#hour").val().padStart(2, "0") + $("#min").val().padStart(2, "0");
+	if($("#movielist").val() == null ||  $("#movielist").val() == '') {
+		alert('영화를 선택해주세요.');
+		return;
+	}
 	
 	alert(datetime);				
-	return;
 	
 	let theater = {
-		movieTopBackgroundColor : $("#movieTopBackgroundColorTxt").val(),
-		title : $("#title").val(),
-		en_title : $("#en_title").val(),
-		director : $("#director").val(),
-		actor : $("#actor").val(),
-		genre : $("#genre").val(),
-		info : $("#info").val(),
-		detail : $("#detail").val(),
-		screening_date : screening_date,
-		end_date : end_date
+		name : $("#teaterName").val(),
+		location : $("#location").val(),
+		locationDetail : $("#locationDetail").val(),
+		movie_pk : $("#movielist").val(),
+		movieDateTime : datetime,
+		seats : $("#seats").val()
 	}
 	
 	$.ajax({
 			type: "POST",
 			url: "/info/insertTheater",
-			data: formData,
-			contentType: false,
-	        processData: false
+			data: JSON.stringify(theater),
+			contentType: "application/json; charset=utf-8"
 		}).done(function(response) {
 			let status = response["status"];
 			if(status == 200) {
 				// 영화등록 성공
 				let message = response["data"];
 				alert(message);
-				location = "/info/insertMovie";	
+				location = "/info/insertTheater";
 			} else {
 			// 영화등록 실패
-				alert('영화등록 실패!');
+				alert('영화관 등록 실패!');
 			}
 		}).fail(function(error) {
 			alert("에러 발생 : " + error);

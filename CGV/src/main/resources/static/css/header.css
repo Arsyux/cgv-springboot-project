@@ -176,9 +176,11 @@ nav > ul.login > li > a {
 }
 nav > ul.login > li > a > img {
     width: 40px;
+    margin-top: 2px;
 }
-nav > ul.login > li > a > p {
-    margin-top: -5px;
+nav > ul.login > li > a > span {
+	display: block;
+    margin-top: -7px;
 }
 
 /* 서브 메뉴 */

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.arsyux.cgv.domain.MovieVO;
+import com.arsyux.cgv.domain.TheaterVO;
 
 
 @Mapper
@@ -31,5 +32,13 @@ public interface MovieMapper {
 
 	@Select("SELECT * FROM tb_movie WHERE movie_pk=#{movie_pk}")
 	public MovieVO getMovieDetail(int movie_pk);
+	
+	// 영화관 등록
+	@Insert("INSERT INTO tb_theater("
+			  + "name, location, locationDetail, movie_pk, movieDateTime, seats) "
+			  + "VALUES("
+			  + "#{name}, #{location}, #{locationDetail}, #{movie_pk}, "
+			  + "#{movieDateTime}, #{seats})")
+	public void insertTheater(TheaterVO theater);
 	
 }

@@ -30,6 +30,11 @@ footer {
 #footer_wrap ul li a b {
     color: #000;
 }
+#footer_wrap ul li span.underbold {
+	color: #000;
+	font-weight: bold;
+	text-decoration: underline;
+}
 
 #footer_wrap p.line {
     width: 950px;
@@ -46,6 +51,9 @@ footer {
     font-size: 12px;
     color: #666;
     line-height: 1.8;
+}
+#footer_wrap address span.under {
+	text-decoration: underline;	
 }
 
 #footer_wrap select {

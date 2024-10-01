@@ -28,7 +28,7 @@
 				<tr>
 					<th>영화관 이름</th>
 					<td>
-						<input id="movie_title" type="text" required autocomplete='off' value="분당 지점">
+						<input id="teaterName" type="text" required autocomplete='off' value="분당 지점">
 					</td>
 				</tr>
 				<tr>
@@ -51,15 +51,15 @@
 				<tr>
 					<th>상세 주소</th>
 					<td>
-						<input id="location_detail" type="text" required autocomplete='off' value="경기도 성남시 분당구">
-						<p id="location_detail_regex" class="re"></p>
+						<input id="locationDetail" type="text" required autocomplete='off' value="경기도 성남시 분당구">
+						<p id="locationDetail_regex" class="re"></p>
 					</td>
 				</tr>
 				<tr>
 					<th>영화 이름</th>
 					<td>
 		                <select id="movielist" onchange="select_screening_year()" required>
-		                    <option value="영화이름" disabled hidden selected>영화이름</option>
+		                    <option value="영화이름" disabled hidden="hidden" selected>영화이름</option>
 		                    <c:forEach var="movie" items="${ movielist }">
 		                    	<option value="${ movie.movie_pk }">${ movie.title }</option>
 		                    </c:forEach>
@@ -70,24 +70,24 @@
 				<tr>
 					<th>영화 날짜</th>
 					<td>
-		                <select id="year" onchange="select_screening_year()" required>
-		                    <option value="년" disabled hidden selected>년</option>
+		                <select id="year" onchange="select_year()" required>
+		                    <option value="년" disabled hidden="hidden" selected>년</option>
 		                </select>
 		                년 
-		                <select id="month" onchange="select_screening_month()" required>
-		                    <option value="월" disabled hidden selected>월</option>
+		                <select id="month" onchange="select_month()" required>
+		                    <option value="월" disabled hidden="hidden" selected>월</option>
 		                </select>
 		                월 
 		                <select id="day" required>
-		                    <option value="일" disabled hidden selected>일</option>
+		                    <option value="일" disabled hidden="hidden" selected>일</option>
 		                </select>
 		                일
 		                <select id="hour" required>
-		                    <option value="시" disabled hidden selected>시</option>
+		                    <option value="시" disabled hidden="hidden" selected>시</option>
 		                </select>
 		                시
 		                <select id="min" required>
-		                    <option value="분" disabled hidden selected>분</option>
+		                    <option value="분" disabled hidden="hidden" selected>분</option>
 		                </select>
 		                분
 					</td>

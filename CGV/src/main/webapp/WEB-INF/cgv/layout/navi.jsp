@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 </head>
 <body>
@@ -86,19 +87,19 @@
 	                <li>
 	                    <a href="/auth/login">
 	                        <img id="loginPassword" src="../images/common/loginPassword.png">
-                        	<p>로그인</p>
+                        	<span>로그인</span>
 	                    </a>
 	                </li>
 	                <li>
 	                    <a href="/auth/join">
 	                        <img id="loginJoin" src="../images/common/loginJoin.png">
-	                        <p>회원가입</p>
+	                        <span>회원가입</span>
 	                    </a>
 	                </li>
 	                <li>
 	                    <a href="#a">
 	                        <img id="loginCustomer" src="../images/common/loginCustomer.png">
-	                        <p>고객센터</p>
+	                        <span>고객센터</span>
 	                    </a>
 	                </li>
                 </c:if>
@@ -106,19 +107,19 @@
 	                <li>
 	                    <a href="/auth/logout">
 	                        <img id="loginPassword" src="../images/common/loginPassword.png">
-                        	<p>로그아웃</p>
+                        	<span>로그아웃</span>
 	                    </a>
 	                </li>
 	                <li>
 	                    <a href="/info/mycgv">
 	                        <img id="loginJoin" src="../images/common/loginMember.png">
-	                        <p>MY CGV</p>
+	                        <span>MY CGV</span>
 	                    </a>
 	                </li>
 	                <li>
 	                    <a href="#a">
 	                        <img id="loginCustomer" src="../images/common/loginCustomer.png">
-	                        <p>고객센터</p>
+	                        <span>고객센터</span>
 	                    </a>
 	                </li>
 				</c:if>

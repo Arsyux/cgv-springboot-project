@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.arsyux.cgv.domain.MovieVO;
+import com.arsyux.cgv.domain.TheaterVO;
 
 @Repository
 public class MovieDAO {
@@ -27,6 +28,11 @@ public class MovieDAO {
 	// 무비 상세 조회
 	public MovieVO getMovieDetail(int movie_pk) {
 		return mybatis.selectOne("getMovieDetail", movie_pk);
+	}
+	
+	// 영화관 추가
+	public void insertTheater(TheaterVO theater) {
+		mybatis.insert("insertTheater", theater);
 	}
 	
 }

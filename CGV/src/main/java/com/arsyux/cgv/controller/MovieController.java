@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,11 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.arsyux.cgv.domain.UserVO;
 import com.arsyux.cgv.dto.MovieDTO;
 import com.arsyux.cgv.dto.ResponseDTO;
+import com.arsyux.cgv.dto.TheaterDTO;
 import com.arsyux.cgv.security.UserDetailsImpl;
 import com.arsyux.cgv.service.MovieService;
 import com.arsyux.cgv.domain.FileUtils;
 import com.arsyux.cgv.domain.FileVO;
 import com.arsyux.cgv.domain.MovieVO;
+import com.arsyux.cgv.domain.TheaterVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -170,5 +173,37 @@ public class MovieController {
 		
 		return "movie/movieDetail";
 	}
+	
+	@PostMapping("/info/insertTheater")
+	public @ResponseBody ResponseDTO<?> insertTheater(@RequestBody TheaterDTO theaterDTO, 
+			@AuthenticationPrincipal UserDetailsImpl principal, BindingResult bindingResult) {
+		
+		UserVO user = principal.getUser();
+		TheaterVO theater = modelMapper.map(theaterDTO, TheaterVO.class);
+		
+		System.out.println(theater.getMovieDateTime());
+		
+		// admin 체크
+		if(!user.getRole().equals("admin")) {
+			// admin이 아닐경우 홈으로 이동
+			System.out.println("잘못된 접근입니다. 접근 아이디: " + user.getId());
+			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "잘못된 접근입니다.");
+		} else {
+			// admin이 일 경우
+			
+			// movie객체에 저장 경로 설정
+			// 메인 이미지
+			// 상단 광고 이미지
+			//time = movieMainTop.getRegdate().toLocalDateTime();
+			//str_time = time.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+			//movie.setMovieTopImg("../images/movieTop/" + str_time + "/" + movieMainTop.getSave_name());
+			
+			// DB 삽입
+			movieService.insertTheater(theater);
+			
+			return new ResponseDTO<>(HttpStatus.OK.value(), "영화관 등록에 성공하였습니다.");
+		}
+	}
+	
 	
 }

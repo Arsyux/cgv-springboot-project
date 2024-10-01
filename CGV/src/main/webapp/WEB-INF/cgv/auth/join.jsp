@@ -34,15 +34,15 @@
             <th>생년월일</th>
             <td>
                 <select id="year" onchange="select_year()" required>
-                    <option value="년" disabled hidden selected>년</option>
+                    <option value="년" disabled hidden="hidden" selected>년</option>
                 </select>
                 년 
                 <select id="month" onchange="select_month()" required>
-                    <option value="월" disabled hidden selected>월</option>
+                    <option value="월" disabled hidden="hidden" selected>월</option>
                 </select>
                 월 
                 <select id="day" required>
-                    <option value="일" disabled hidden selected>일</option>
+                    <option value="일" disabled hidden="hidden" selected>일</option>
                 </select>
                 일
             </td>
