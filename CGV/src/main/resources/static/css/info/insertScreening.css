@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+#info_main > form > h1 {
+	color: #222;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+#info_main > form > table {
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+}
+#info_main > form > table > tbody > tr > th {
+	background: #f8f8f8;
+	width: 15%;
+	height: 50px;
+}
+#info_main > form > table > tbody > tr:nth-child(1) > th,
+#info_main > form > table > tbody > tr:nth-child(2) > th,
+#info_main > form > table > tbody > tr:nth-child(3) > th,
+#info_main > form > table > tbody > tr:nth-child(4) > th {
+	font-size: 14px;	
+}
+#info_main > form > table > tbody > tr > td {
+	box-sizing: border-box;
+	padding-left: 20px;
+}
+#info_main > form > table > tbody > tr > td > input[type="color"] {
+	vertical-align: middle;
+}
+#info_main > form > table > tbody > tr > td > input[type="text"],
+#info_main > form > table > tbody > tr > td > input[type="number"] {
+    width: 300px;
+    height: 30px;
+	vertical-align: middle;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+#info_main > form > table > tbody > tr > td > input[type="number"] {
+	width: 80px;
+}
+#info_main > form > table > tbody > tr > td > input[type="text"]#movieTopBackgroundColorTxt {
+	width: 245px;
+}
+#info_main > form > table > tbody > tr > td > textarea {
+	width: 600px;
+	border: 1px solid #ddd;
+	resize: none;	
+}
+
+#info_main > form > table > tbody > tr > td > select {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #ddd;
+}
+#info_main > form > table > tbody > tr > td > select#theaterlist {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #ddd;
+}
+
+#info_main > form > table > tbody > tr > td > select#movielist {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #ddd;
+}
+
+#info_main > form > table > tbody > tr > td > p.re {
+    margin-left: 5px;
+    margin-top: 5px;
+    color: #dc143c;
+    font-size: 14px;
+}
+
+div.btn_insert_area {
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+div.btn_insert_area button.btn_insert {
+    width: 120px;
+    height: 40px;
+    background: #ed3124;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}

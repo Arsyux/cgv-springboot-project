@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arsyux.cgv.domain.MovieVO;
+import com.arsyux.cgv.domain.ScreeningVO;
 import com.arsyux.cgv.domain.TheaterVO;
 import com.arsyux.cgv.persistence.MovieDAO;
 
@@ -42,4 +43,19 @@ public class MovieService {
 		movieDAO.insertTheater(theater);
 	}
 	
+	// 영화관 조회
+	@Transactional
+	public List<TheaterVO> getTheaterList() {
+		return movieDAO.getTheaterList();
+	}
+
+	// 상영 등록
+	public void insertScreening(ScreeningVO screening) {
+		movieDAO.insertScreening(screening);
+	}
+	
+	// 상영 조회
+	public List<ScreeningVO> getScreeningList(ScreeningVO screening) {
+		return movieDAO.getScreeningList(screening);
+	}
 }

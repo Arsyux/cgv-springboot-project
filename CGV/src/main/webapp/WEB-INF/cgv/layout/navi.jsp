@@ -39,7 +39,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#a">예매</a>
+                    <a href="/ticket">예매</a>
                     <ul class="sub">
                         <li><a href="/ticket">빠른예매</a></li>
                         <li><a href="#a">상영스케줄</a></li>

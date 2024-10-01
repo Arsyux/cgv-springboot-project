@@ -194,25 +194,4 @@ function btn_insert_click() {
 		}).fail(function(error) {
 			alert("에러 발생 : " + error);
 		});
-	/*
-	$.ajax({
-		type: "POST",
-		url: "/info/insertMovie",
-		data: JSON.stringify(movie),
-		contentType: "application/json; charset=utf-8"
-	}).done(function(response) {
-		let status = response["status"];
-		if(status == 200) {
-			// 영화등록 성공
-			let message = response["data"];
-			alert(message);
-			location = "/info/insertMovie";	
-		} else {
-		// 영화등록 실패
-			alert('영화등록 실패!');
-		}
-	}).fail(function(error) {
-		alert("에러 발생 : " + error);
-	});
-	*/
 }

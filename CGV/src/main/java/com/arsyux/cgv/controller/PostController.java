@@ -22,17 +22,6 @@ public class PostController {
 		return "index";
 	}
 	
-	// 예매
-	@GetMapping("/ticket")
-	public String getTicket(Model model, @RequestParam(required = false) String ticket) {
-		if(ticket != "" && ticket != null) {
-			model.addAttribute("ticket", ticket);
-			return "ticket/ticket";	
-		} else {
-			return "ticket/ticket";
-		}
-	}
-	
 	// 특별관
 	@GetMapping("/special")
 	public String getSpecial(Model model, @RequestParam(defaultValue = "IMAX") String cinema) {

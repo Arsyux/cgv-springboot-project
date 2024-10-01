@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+/* my cgv 배너 */
+#ticket_section {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#ticket_section div.movieList {
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid #d4d3c9;	
+	width: 285px;
+	height: 600px;
+	background: #f2f0e5;
+}
+
+#ticket_section div.movieList h1.title {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #d6d6d6;
+	background: #333;
+	text-align: center;
+}
+
+#ticket_section div.movieList ul {
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+#ticket_section div.movieList ul li.movieName {
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	height: 35px;
+	line-height: 32px;
+	box-sizing: border-box;
+	padding-left: 7px;
+	cursor: pointer;
+}
+#ticket_section div.movieList ul li.selectedMovie {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+#ticket_section div.movieList ul li.movieName:hover {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+#ticket_section div.theaterList {
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid #d4d3c9;	
+	width: 265px;
+	height: 600px;
+	background: #f2f0e5;
+}
+
+#ticket_section div.theaterList h1.title {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #d6d6d6;
+	background: #333;
+	text-align: center;
+}
+
+#ticket_section div.theaterList ul {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 55%;
+}
+#ticket_section div.theaterList ul:last-child {
+	width: 42%;
+}
+
+#ticket_section div.theaterList ul li.theaterLocation {
+	text-align: right;
+	background: #e6e4d9;
+	
+	font-size: 13px;
+	font-weight: bold;
+	width: 100%;
+	height: 35px;
+	line-height: 32px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+#ticket_section div.theaterList ul li.theaterLocation:hover {
+	background: #f2f0e5;
+	color: #333;
+}
+#ticket_section div.theaterList ul li.selectedLocation {
+	background: #f2f0e5;
+	color: #333;
+}
+
+#ticket_section div.theaterList ul li.theaterLocation span {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 10px;
+	margin-top: -5px;
+	padding-right: 5px;
+}
+
+#ticket_section div.theaterList ul li.theaterName {
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	height: 35px;
+	line-height: 32px;
+	box-sizing: border-box;
+	padding-left: 7px;
+	cursor: pointer;
+}
+#ticket_section div.theaterList ul li.selectedTheater {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+#ticket_section div.theaterList ul li.theaterName:hover {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+/* 날짜 */
+#ticket_section div.movieTime {
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid #d4d3c9;	
+	width: 420px;
+	height: 600px;
+	background: #f2f0e5;
+}
+
+#ticket_section div.movieTime h1.title {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	color: #d6d6d6;
+	background: #333;
+	text-align: center;
+}
+
+#ticket_section div.movieTime ul {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+#ticket_section div.movieTime ul li.ticketTime {
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	height: 35px;
+	line-height: 32px;
+	box-sizing: border-box;
+	padding-left: 7px;
+	cursor: pointer;
+}
+#ticket_section div.movieTime ul li.selectedTicketTime {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+#ticket_section div.movieTime ul li.ticketTime:hover {
+	background: #333;
+	color: #fff;
+	border: 2px solid #5c5c5c;
+}
+
+
+/* 예매하기 */
+div.btn_area {
+	width: 100%;
+	text-align: center;	
+	margin: 0 auto;
+	margin-top: 40px;
+}
+#insert_ticekting {
+	width: 130px;
+	height: 40px;
+	background: #333;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+}

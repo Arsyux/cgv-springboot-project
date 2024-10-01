@@ -88,16 +88,30 @@ function select_month() {
 
 function btn_insert_click() {
 	
-	let theater = {
-		name : $("#teaterName").val(),
-		location : $("#location").val(),
-		locationDetail : $("#locationDetail").val(),
+	let datetime = $("#year").val() + "-" + $("#month").val().padStart(2, "0") + "-" + $("#day").val().padStart(2, "0") + " "
+					+ $("#hour").val().padStart(2, "0") + ":" + $("#min").val().padStart(2, "0");
+	
+	if($("#theaterlist").val() == null ||  $("#theaterlist").val() == '') {
+		alert('영화관을 선택해주세요.');
+		return;
+	}
+	
+	if($("#movielist").val() == null ||  $("#movielist").val() == '') {
+		alert('영화를 선택해주세요.');
+		return;
+	}
+	
+	let screening = {
+		theater_pk : $("#theaterlist").val(),
+		movie_pk : $("#movielist").val(),
+		movieDateTime : datetime,
+		seats : $("#seats").val()
 	}
 	
 	$.ajax({
 			type: "POST",
-			url: "/info/insertTheater",
-			data: JSON.stringify(theater),
+			url: "/info/insertScreening",
+			data: JSON.stringify(screening),
 			contentType: "application/json; charset=utf-8"
 		}).done(function(response) {
 			let status = response["status"];
@@ -105,7 +119,7 @@ function btn_insert_click() {
 				// 영화등록 성공
 				let message = response["data"];
 				alert(message);
-				location = "/info/insertTheater";
+				location = "/info/insertScreening";
 			} else {
 			// 영화등록 실패
 				alert('영화관 등록 실패!');

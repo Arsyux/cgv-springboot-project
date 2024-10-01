@@ -47,8 +47,15 @@ theater_pk int(8) auto_increment primary key,
 name varchar(50) unique not null,
 location varchar(50) not null,
 locationDetail varchar(200) not null,
+regdate datetime default NOW());
+
+-- 상영 등록
+CREATE TABLE tb_screening(
+screening_pk int(8) auto_increment primary key,
+theater_pk int(8) not null,
 movie_pk int(8) not null,
 movieDateTime datetime default NOW(),
 seats int(8) default 0,
 regdate datetime default NOW(),
-FOREIGN KEY(movie_pk) REFERENCES tb_movie(movie_pk) ON DELETE CASCADE);
+FOREIGN KEY(movie_pk) REFERENCES tb_movie(movie_pk) ON DELETE CASCADE,
+FOREIGN KEY(theater_pk) REFERENCES tb_theater(theater_pk) ON DELETE CASCADE);

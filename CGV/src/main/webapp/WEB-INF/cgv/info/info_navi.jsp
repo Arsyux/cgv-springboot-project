@@ -13,8 +13,10 @@
 		<label>관리자 메뉴 ────</label>
 		<a class="amenu" id="insertMovie" href="/info/insertMovie">영화 추가</a>
 		<a class="amenu" id="insertMovie" href="#a">영화 수정/삭제</a>
-		<a class="amenu" id="insertTheater" href="/info/insertTheater">영화관 설정</a>
+		<a class="amenu" id="insertTheater" href="/info/insertTheater">영화관 추가</a>
 		<a class="amenu" id="insertMovie" href="#a">영화관 수정/삭제</a>
+		<a class="amenu" id="insertScreening" href="/info/insertScreening">상영 등록</a>
+		<a class="amenu" id="insertMovie" href="#a">상영 등록 수정/삭제</a>
 	</c:if>
 	
 </div>
