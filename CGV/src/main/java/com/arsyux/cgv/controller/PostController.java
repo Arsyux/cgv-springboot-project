@@ -17,7 +17,7 @@ public class PostController {
 	private String FILE_PATH;
 	
 	// 메인 화면 이동
-	@GetMapping({ "", "/", "index" })
+	@GetMapping({ "", "/", "/index" })
 	public String getHome() {
 		return "index";
 	}
